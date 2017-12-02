@@ -1,0 +1,20 @@
+body.page-id-13 {
+  width: 100%;
+  height: 100%;
+  min-height: 700px;
+  background-image: url('http://natashasamsonyoga.com/wp-content/uploads/2016/05/workshop-photo.jpg');
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-color: #3c2f41;
+  color: #fff;
+}
+
+body.page-id-13 .col-content {
+  position: fixed;
+  bottom: 50px; right:50px;
+}
+
+body.page-id-13 h1 {
+    padding: 8px 16px;
+    background-color: rgba(255,255,255,0.8);
+}

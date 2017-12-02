@@ -1,0 +1,38 @@
+@media screen and (min-width: $xs-width) {}
+
+@media screen and (min-width: $sm-width) {
+    
+    .single, .archive {
+        #content {
+            .entry-header { font-size: 2em; line-height: 2em; }
+        }
+    }
+    
+    #container {
+        min-height: 600px;
+        margin-top: $baseline * 0.5;
+        article, .product { 
+            text-align:left;
+            .entry-header { font-size: 2em; line-height: 2em; }
+            .woocommerce { text-align:left; }
+        }
+        
+        #sub-header { 
+            font-size: 100%; line-height: 110%; 
+            position:static;
+        }
+        
+        .product { overflow:hidden; }
+        
+        .splash {
+            article, .product {
+                padding-top: 7vw;
+                margin-bottom: 9vw;
+                .entry-header { 
+                    text-align:left!important;
+                    margin-left: $gutter!important;
+                }
+            }
+        }
+    }   
+}

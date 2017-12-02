@@ -1,0 +1,1 @@
+[12-Oct-2015 21:05:50 America/Denver] PHP Fatal error:  Call to undefined function get_header() in /home2/wordpry3/public_html/wp-content/themes/mia/index.php on line 1

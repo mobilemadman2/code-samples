@@ -1,0 +1,78 @@
+/* mixins */
+@mixin fluid-width($cols) {
+    width: percentage(1/12*$cols);
+}
+
+@mixin fluid-offset($cols) {
+    padding-left: percentage(1/12*$cols);
+    overflow:hidden;
+    width: 100%;
+    position: relative;
+}
+
+@mixin fluid-offset-right($cols) {
+    padding-right: percentage(1/12*$cols);
+    overflow:hidden;
+    width: 100%;
+    position: relative;
+    right: percentage(1/12*$cols);
+}
+
+@mixin transition($args) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+@mixin border-box {
+    box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   -ms-box-sizing: border-box;
+}
+
+@mixin image-height($width, $bottom) {
+  height: $width / 12 * 8 + $bottom;
+}
+
+@mixin image-height-sq($width, $bottom) {
+  height: ($width * 0.5) + $bottom;
+}
+
+%wrapper-full { overflow:hidden; width:100%; }
+%wrapper-fixed { max-width:$max-width; margin: 0 auto; }
+
+%main-background { background-color: $background-color; color:$body-color; }
+%alt-background { background-color: $background-color-alt; color: $accent-soft; }
+%soft-background { background-color: $accent-soft; color:$body-color; }
+
+%text-center {
+  text-align: center;
+  @media only screen and (min-width : $sm-width)  { text-align: left; }
+}
+
+%mobile-text {
+  font-size:90%;
+  @media only screen and (min-width : 768px)  { font-size:100%; }
+}
+
+%soft-fade { opacity: 0.5; @include transition(opacity 0.5s);}
+%soft-text { color: $accent-alt; opacity: 0.8; }
+
+%underlined  {
+  padding-bottom: 0.2px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-color: $background-color;
+  display: inline-block;
+  @include transition(border-color 0.5s);
+}
+%underlined-hover { border-color: $accent-high; }
+
+%underlined-alt  { @extend %underlined; border-color: $accent-soft; }
+%underlined-alt-hover { border-color: $body-color; }
+
+%nested-content { margin-left: $gutter; margin-right:$gutter; }
+%double-nested { margin: 0 $gutter-adj * -1; }

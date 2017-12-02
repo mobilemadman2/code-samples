@@ -1,0 +1,206 @@
+#footer {
+  @extend %wrapper-full;
+  position: relative;
+  margin-top: $vertical-spacing;
+  padding: $vertical-spacing 0;
+  .container {
+    border-top: 2px solid $body-color;
+    padding-top: $baseline;
+  }
+  .mb-col-6, .mb-col-4 { float:none; }
+  .col-content { display: block; text-align: center; }
+  .mb-col-2 .col-content {
+    font-size: 95%;
+    text-align: left;
+    padding-bottom: 6px;
+  }
+  h6 span {
+    color: $accent-high;
+    &:before, &:after  { content: ' — '; }
+  }
+  #bottom, #mailchimp, #contact, #instagram { margin-top: $vertical-spacing * 0.5;}
+  /* #contact */
+  #contact {
+    margin-bottom: $vertical-spacing * 0.5;
+    .col-content {
+      border-style: solid; border-width: 1px;
+      border-color: $white;
+      padding:0;
+    }
+    ul { position: relative; left: -0.5 * $gutter; }
+    a.fa {
+      font-size: 26px;
+      position: relative; top: -8px;
+      @include transition( all 1s 0.2s );
+    }
+    p { margin: 3px 0 23px; }
+    &.lowlight {
+      .col-content { border: 1px solid $body-color; }
+    }
+    &.highlight {
+      .col-content {
+        display: block;
+        padding: 5px $gutter $gutter;
+        border-width: 3px;
+        border-color: $accent-high;
+        @include transition(border-color 1s 0.2s);
+      }
+      .fa { color: $body-color; }
+    }
+  }
+  /* #social-feeds */
+  #social-feeds {
+    h6 { display: none;}
+    max-width: 600px;
+    margin-left: auto; margin-right: auto;
+    margin-bottom: $baseline;
+    #twitter-widget, #facebook-widget, #instagram-widget {
+      width: 270px;
+      margin-right: auto; margin-left: auto;
+      margin-bottom: $baseline * 0.5;
+    }
+    /* #instagram-widget */
+    #instagram-widget {
+      position: relative;
+      height: 270px;
+      li {
+        position: relative;
+        width: 131px; height: 131px; float: left;
+        &:nth-child(even) { margin: 0 8px 8px 0; }
+        .fa {
+          font-size: 66px;
+          color: $white;
+          opacity:0.1;
+          position: absolute;
+          top:35px;
+          left:38px;
+        }
+        a {
+          border:none;
+          &:hover {
+            .fa { opacity:0.8; }
+          }
+        }
+      }
+      #instagram-badge {
+        display: none;
+        border:none;
+        position: absolute;
+        bottom:-12px; left:0;
+      }
+    }
+    /* #twitter-widget */
+    #twitter-widget {
+      padding: 8px 0;
+      text-align: left;
+      background: rgba(255,255,255,0.3);
+      font-size: 80%;
+      header {
+        height: 50px;
+        i { font-size: 44px; margin: 0 8px; color: $twitter-blue; opacity: 0.6; }
+        a { vertical-align: top; }
+        .username { font-size: 18px; font-weight: $strong-weight; }
+      }
+      #twitter-feed { position: absolute; top:0; left: -3000px;}
+      #follow-link {
+        margin: 8px 8px 0;
+        border-color: $accent-soft!important;
+      }
+      #twitter-feed-container {
+        overflow: hidden;
+        padding: 0 8px;
+        line-height: $baseline*0.9;
+        ol {
+          padding: 0 4px;
+          .timeline-Tweet-text {
+            &:before {
+              content:'“';
+              font-family: $display-font;
+              font-weight: $display-weight;
+              font-size: 300%;
+              vertical-align: middle;
+              margin-right: 6px;
+              color: $twitter-blue;
+              opacity: 0.6;
+            }
+          }
+          .TweetAuthor, .TwitterCardsGrid, .timeline-ShareMenu-container, .timeline-Tweet-actions, .MediaCard div div { display: none; }
+          .timeline-Tweet-metadata, .MediaCard { a { font-size: 80%; position: relative; top:-6px; } }
+        }
+      }
+    }
+  }
+  /* #contact */
+  #bottom { padding-top: $vertical-spacing * 0.5;}
+  /* #media Qs */
+  @media only screen and (min-width : $sm-width)  {
+    #social-feeds {
+      #twitter-widget { margin:0 0 $baseline; float: right; }
+      #facebook-widget { margin:0 0 $baseline; float: left; }
+      #instagram-widget {
+        margin-top: $baseline;
+        clear: both; width: 100%;
+        height: 133px;
+        li {
+          width: 136px; height: 136px;
+          margin: 0 4px!important;
+          &:first-child { margin-left:0!important; }
+          &:last-child { margin-right:0!important; }
+        }
+      }
+    }
+  }
+  @media only screen and (min-width : $sm-med-width)  {
+    #mailchimp, #contact { width: 600px; margin-left:auto; margin-right:auto; }
+    #social-feeds {
+      width: 600px;
+      #twitter-widget, #facebook-widget { margin-top:$baseline * 0.5; }
+    }
+  }
+  @media only screen and (min-width : $med-width)  {
+    .mb-col-4, .mb-col-6 { h6 span:before { content: ''; } }
+    #social-feeds {
+      h6 { display: block;}
+      margin-left: 0; margin-right: 0;
+      float:left;
+      .col-content { text-align: left; }
+      #twitter-widget, #facebook-widget { margin-top:0; }
+    }
+    #mailchimp.mb-col-4, #contact.mb-col-4  {
+      float:right;
+      @include fluid-width(4);
+      .col-content { text-align: left; }
+    }
+  }
+}
+
+
+/* #mailchimp */
+#mailchimp, .mailchimp  {
+  padding-bottom: $baseline * 0.5;
+  input {
+    margin-top: 2px;
+  }
+  input[type="email"], input[type="text"], input[type="submit"] {
+    border: 1px solid $accent-soft!important;
+  }
+  label { font-size: $small-size; }
+  .col-content { display: block; }
+  form {
+    max-width: 570px; margin: 0 auto;
+    position: relative;
+  }
+  .mc-field-group {
+    text-align: left;
+    width: 33%; margin-right: 2%;
+    float: left;
+    &:nth-child(3) { width: 53%; }
+  }
+  .button {
+    position: absolute; right:0; bottom: -1px;
+    width: 10%; padding: 0; font-size: 100%;
+  }
+}
+.mailchimp {
+  form { margin-left:0; }
+}

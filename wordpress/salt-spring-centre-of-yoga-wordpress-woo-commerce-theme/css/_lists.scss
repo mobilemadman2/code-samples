@@ -1,0 +1,94 @@
+.reset-li { list-style-type:none; margin-left: 0; padding-left:0; text-indent:0; }
+
+#container {    
+    /* definition list */
+    dl {
+        line-height: $baseline;
+        dt {
+            display: block;
+            font-weight: $strong-weight;
+        }
+        dd {
+            display: block;
+        }
+    }
+    /* ul list */
+    ul li { 
+        list-style-type:disc; 
+        list-style-position:inside; 
+        margin-left: 0;
+        padding-left: 1em;
+        text-indent: -1em;
+    }
+    /* products list */
+    ul.products {
+        @extend .nested-content;
+        li { @extend .reset-li; }
+    }  
+    /* expandable list */
+    ul.expandable {
+        text-align:left;
+        li { 
+            @extend .reset-li;
+            border-top: 1px solid $accent-mid;
+            margin-top: $baseline;
+            position:relative;
+            cursor:pointer;
+            .entry-content { max-height: 0; } 
+        }
+        li:hover, li.open { 
+            .entry-content {
+                max-height: 200px;
+                @include transition( max-height 0.3s );
+            } 
+        }
+        li:before {
+            cursor:pointer;
+            font-size: 60%; color:$accent-mid;
+            content: "\25BC";
+            position:absolute; top: 16px; left: 0;
+        }
+        li:hover:before, li.open:before {
+            top: 14px;
+            content: "\25B2";
+        }
+    }
+    form ul li { @extend .reset-li; }
+    article, aside {
+        /* gridded list */
+        ul.grid {
+            max-width: 100%;
+            h4 { font-style: $em-style; }
+            h5 { color: $accent-mid; font-weight: $font-weight; margin-top:$baseline * 0.5; }
+            li { @extend .reset-li; }
+            li.parent { 
+                padding-bottom: $vertical-spacing;
+                float: none; display:inline-block; 
+                vertical-align:top; height:100%;
+                li { margin-bottom: $baseline * 0.75; }
+                a { 
+                    text-decoration:none; 
+                    .class-name { color: $accent-mid;  }
+                }
+            }
+        }
+    }
+}
+
+/* .js  */
+.js #container {
+    article, aside {
+        /* gridded list */
+        ul.grid {
+            h3 { margin-top: 0!important; }
+            li.parent { 
+                .col-content { 
+                    background: $white;
+                    background-color:$white-rgba;
+                    border: 1px solid $accent-mid;
+                    padding: $gutter * 2; 
+                }
+            }
+        }
+    }
+}

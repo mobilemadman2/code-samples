@@ -1,0 +1,61 @@
+$background-color: #f8f5ee;
+$background-color-rgba: rgba(248,245,238,0.6);
+$background-image: url(/wp-content/themes/sscy_responsive/images/orchid.jpg);
+
+$cswc-color: #672556;
+$cswc-accent: #ca96c4;
+
+$public-color: $cswc-color;
+$public-accent: #608c84 ;
+$public-accent-high: #72d2c1;
+
+$white: #fff;
+$white-rgba: rgba(255,255,255,0.8);
+$body-color: #77673a;
+$accent-high: #e2bc50;
+$accent-mid: #B59A40;
+$border-color: $body-color;
+$img-link-opacity: 0.8;
+
+$body-font: 'PT Serif', 'sans-serif';
+$alt-font: 'PT Sans', 'sans-serif';
+$default-font: 16px;
+$baseline:26px;
+$font-weight: 400;
+$strong-weight: 700;
+$link-weight: 400;
+$em-style: italic;
+
+$lotus-width: 140px;
+$logo-width: 270px;
+$logo-lotus_diff: $logo_width - $lotus_width;
+
+$ultra-width: 1300px;
+$max-width: 1180px;
+$lrg-width: 1040px;
+$med-width: 900px;
+$sm-med-width: 800px;
+$sm-width: 500px;
+$xs-width: 300px;
+$max-line-length: 730px;
+
+$gutter: 15px; 
+$gutter-adj: $gutter - 2; 
+$vertical-spacing: $baseline;
+$paragraph-margin: $baseline / 2 0;
+
+$small-size: 80%;
+
+@import 'blankslate';
+@import 'mixins';
+@import 'layout';
+@import 'visuals';
+@import 'header';
+@import 'wp';
+@import 'lists';
+@import 'woo';
+@import 'woo-2';
+@import 'mq-min';
+@import 'mq-sm';
+@import 'mq-med';
+@import 'mq-max';

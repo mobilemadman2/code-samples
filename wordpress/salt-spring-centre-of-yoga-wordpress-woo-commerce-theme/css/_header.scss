@@ -1,0 +1,56 @@
+#header {
+    /* layout */
+    @extend .nested-content; position:relative;
+    #search, #branding { margin-bottom: $vertical-spacing; }
+    #searchform { @extend .nested-content; }
+    #site-title { overflow: hidden; width: 0; height: 0; }
+    h1 { display:inline-block; margin-bottom:0;}
+    
+    /* branding */
+    #branding { 
+        width: $lotus-width; text-align: center; 
+        margin: 0 auto; 
+        position:relative; z-index: 3;
+    }
+    #sscy_lotus { 
+        width: 100%; display:block; margin: 0 auto; 
+        rect, path { fill: $accent-mid;  @include transition("fill 10s");}
+        ellipse { fill: $background-color; }
+    }
+    a:hover {
+        #sscy_lotus path, #sscy_lotus rect { fill: $accent-high;  @include transition("fill 10s");}
+    }
+    
+    /* navigation */
+    #main-menu {
+        padding-top: 36px; padding-bottom: 6px;
+        position: absolute; top: $gutter; left: 0; z-index:5;
+        max-height: 0; width: 100%; overflow:hidden; 
+        #main-menu-toggle {
+            position:absolute; top:0; left:0;
+            font-size:36px; cursor:pointer; color:$body-color;
+        }
+        #main-menu-toggle:hover {
+        }
+        ul { @extend .nested-content; }
+        li {
+            font-size: 24px; line-height:200%;
+            margin-left: 0;
+            a { text-decoration:none; }
+        }
+        .sub-menu { 
+            li { line-height:150%;  } 
+            li:before { content: "- " } 
+        }
+    }
+    #main-menu:hover, #main-menu.open {
+        @include transition( max-height 0.3s );
+        background-color:$background-color;
+        max-height: 200px; width: 100%;
+    }
+    #aside-menu {  position: absolute; top: 0; right: 0;  z-index:4; display: none; }
+    .menu {
+        width: 100%;
+        li { @extend .nested-content; }
+    }
+}

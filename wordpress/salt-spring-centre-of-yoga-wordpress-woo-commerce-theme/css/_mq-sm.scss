@@ -1,0 +1,157 @@
+@media screen and (min-width: $sm-med-width) {
+    
+    .page-template-wellness, .woocommerce, .parent-pageid-95 {
+        #content {   
+            .products li {
+                a { width: 100%; }
+                .button.add_to_cart_button.product_type_appointment { 
+                    position:absolute; top:3px; right: 3px; width: auto; 
+                }
+            }
+        }
+    }
+    
+    .woocommerce #content {
+        .upsells.products  {
+            display: block;
+            h2 { 
+                border-bottom: 1px solid $accent-mid;
+                position:relative; top: $baseline * 0.5; 
+            }
+            .products {
+                max-width: 100%!important;
+                li.product {   
+                    padding: 0; padding-bottom: 0; margin: $baseline * 0.5 0 0; width: 100%;    
+                    div { display:none; }
+                    .button.add_to_cart_button.product_type_appointment { display: none; }
+                }
+            }
+        }
+        
+        .woocommerce-message:before, .woocommerce-info:before, .woocommerce-error:before {
+            color: $accent-high; display:inline-block;
+        }
+        
+    }
+    
+    .mb-col-4 { @include fluid-width(4); }
+    .mb-col-5 { @include fluid-width(5); }
+    .mb-col-6 { @include fluid-width(6); }
+    .mb-col-7 { @include fluid-width(7); }
+    .mb-col-8 { @include fluid-width(8); }
+    .mb-col-9 { @include fluid-width(9); }
+    .mb-col-10 { @include fluid-width(10); }    
+    .mb-col-11 { @include fluid-width(11); }
+    
+    .mb-col-1, .mb-col-2, .mb-col-3 { @include fluid-width(4);  /* behaves like .mb-col-4 */ }
+    
+    .mb-offset-2 { 
+        .mb-col-8 { @include fluid-width(12); }
+    }
+        
+    .mb-offset-1 { 
+        .mb-col-5 { @include fluid-width(6); }
+    }
+    
+    #breadcrumbs {
+        display: block;
+        li { display:inline-block;}
+    }
+    
+    #header{
+        #branding { 
+            top: 0; z-index:5;         
+        }
+        .menu {
+           div.left, div.left div {
+                text-align:right;
+                li { margin-right: 0; }
+            } 
+            div.right, div.right div  {
+                text-align:left;
+                li { margin-left: 0; margin-right: $gutter; }
+            }
+            li { display:inline-block;}
+        }
+        #main-menu { 
+            .mb-col-5 { overflow:visible; }
+            top: 50px; font-size: 100%; height: auto; max-height: 100px; width: 100%; padding-top:0;
+            border-bottom: $body-color 3px solid; z-index:3; overflow:visible; background-color:$background-color;
+            ul { 
+                padding-top: 2px; margin-left:0; margin-right:0;
+                li { 
+                    padding-bottom: $gutter / 2; 
+                    font-size: 100%; 
+                    line-height:170%; 
+                    position:relative;
+                }
+            }              
+            ul.sub-menu { 
+                display: none; width: 100%;
+                li { margin-left: 3px; margin-right: 3px; }
+            } 
+            li:hover { 
+                ul.sub-menu { 
+                    display: block; background-color: $background-color;
+                    position:absolute; z-index:10;
+                    top: 50px; left: 0; 
+                    li {
+                        display:block;
+                    }
+                } 
+            }
+            .mb-col-5 { @include fluid-width(4); }
+            #main-menu-toggle { display:none; }
+        }
+        #aside-menu { top:10px; text-align:right; z-index: 4; display: block; }
+    }
+    
+    #container {
+        article, aside {
+            ul.grid {
+                .mb-col-4 { @include fluid-width(6); }
+            }
+        }
+    }
+    
+    #footer {
+        text-align:left;
+        #footer-branding.mb-col-4 { 
+            @include fluid-width(6); 
+        }
+        .right { text-align:right; }
+        #sscy_lotus { display:inline; }
+    }
+    
+    html {
+        .woocommerce-account {
+            .mb-col-4 {@include fluid-width(6); }
+        }
+        
+        .woocommerce {
+            .woocommerce-breadcrumb { 
+                //display: none;
+                //font-size:70%; 
+                //color: inherit; 
+                //margin-bottom: $vertical-spacing;
+            }
+        
+            #customer_login .col-content { 
+                border: none; 
+            }
+            
+        }
+        
+        .tax-public_class_teacher, .single-sm_class {
+            dl {
+                overflow: hidden; 
+                dt {
+                    float: left; clear: left;
+                }
+                dd {
+                    float:left; margin-left: 0.5em
+                }
+            }
+        }
+    }
+}

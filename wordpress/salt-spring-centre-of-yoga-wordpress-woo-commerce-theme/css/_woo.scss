@@ -1,0 +1,106 @@
+html {
+    .woocommerce {
+        padding:0;
+        
+        .cart-empty, .return-to-shop { max-width: 100%!important; text-align: center; margin-left: 0; margin-right:0;  }
+        
+        .return-to-shop a { border-radius:0!important;  }
+        
+        .cart-empty, .return-to-shop { margin-left: $gutter; margin-right:$gutter; }
+        
+        form, form.login, form.register {
+            margin: 0; padding: 0;
+            border: none!important;
+            border-radius:0!important;
+            p.form-row { padding:0; margin: $paragraph-margin; }
+            p.terms.form-row { margin:0; }
+        }
+        
+        form .form-row {
+            textarea.input-text  {
+                height: $baseline * 5;
+                border-color: $body-color;
+                width: 98%; padding: 0 1%;
+            }
+        }
+                
+        .order-info {
+            text-align:center;
+            mark { background-color:$white; }
+        }
+        
+        
+        form.login { border-bottom: 1px solid $accent-mid; }
+        
+        #customer_login .col-content {  
+            border-bottom: 1px solid $accent-mid; 
+            padding-bottom: $vertical-spacing; 
+            margin-bottom: $vertical-spacing;
+        }
+        
+        .product_meta { margin-bottom: $vertical-spacing; }
+        
+        .price { 
+            color:inherit!important; @extend em; 
+            small { font-size: 100%;  }
+        }
+        
+        .wc-appointments-appointment-form {
+            border-color: white;
+        }
+        
+        #select2-wc_appointments_field_staff-results li {
+            text-align:left;
+        }
+        
+        .wc-appointments-date-picker .ui-datepicker td.ui-datepicker-current-day a, .wc-appointments-date-picker .ui-datepicker td.ui-datepicker-current-day a:hover, .wc-appointments-appointment-form .slot-picker li.selected a, .wc-appointments-appointment-form .slot-picker li.selected:hover a
+        { background-color: $cswc-color; }
+        
+        .woocommerce-breadcrumb { display: none; }
+    
+        .product-name a { @extend h3; display:block; }
+        
+        .shop_table {
+            border-radius:0!important;
+            background-color:white!important;
+            border: 1px solid $body-color!important;
+            td.product-name dl.variation, dd, td.product-name dl.variation, dt { margin-bottom: 0!important; padding-bottom: 8px!important; }
+            .product-thumbnail { display: none; }
+            .product-remove a { font-size: 2em; }
+            .product-remove:after { 
+                content: "Remove"; 
+                display: block;
+            }
+            input.button { display: none; }
+        }
+        
+        .cart-collaterals {
+            @include fluid_width(11);
+            .cart_totals { max-width: 300px; }
+            th { min-width: 100px; }
+        }
+        
+        .woocommerce-checkout {
+            form.woocommerce-checkout  {
+                h3 { @extend h2; }
+            }
+        }
+            
+        #payment {
+            border: none!important;
+            border-radius:0!important;
+            background-color:white;
+            div.payment_box {
+                background-color: white;
+                color: $body-color;
+                font-style: $em-style;
+                padding: 0 1em; margin:0;
+            }
+            div.payment_box:before {
+                border-width: 0;
+                content: none;
+                margin: 0;
+            }
+        }
+    }
+}

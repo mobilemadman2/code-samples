@@ -1,0 +1,119 @@
+.page-template-wellness, .term-ayurvedic-treatments, .term-health-treatments, 
+.woocommerce, .woocommerce-cart, .woocommerce-account, .woocommerce-checkout, 
+.woocommerce-edit-address, .woocommerce-edit-account, .parent-pageid-95  {
+    
+    #container { 
+        article form p { 
+            padding:0; 
+            max-width:100%; 
+        }
+        
+        h2#ayurvedic, h2#health { 
+            border-bottom: 1px solid $accent-mid; 
+            padding-bottom: $baseline * 0.5;
+        }
+        
+        h2#health { margin-top: $baseline;}
+        
+        ul.products {
+            .product-category .count { display: none; }
+            li.product.product-type-appointment {
+                width: 100%;
+                margin: $baseline * 0.5 0 0;
+                border-bottom: 1px solid $cswc-color;                
+                a h3 { 
+                    margin-bottom: 0;
+                    font-size: 1.2em;
+                }
+            }
+        }
+        
+        .upsells.products  {
+            display: none;
+            h2 { @extend h3; }
+        }
+       
+        
+        .cross-sells { 
+             h2 { 
+                @extend h3; border-bottom: 1px solid $accent-mid;
+                margin-left: $gutter!important; margin-right: $gutter!important;
+            }
+            .products {
+                margin-left: $gutter; margin-right: $gutter;
+                li.product {  
+                    display: block; width: auto!important; float: none;
+                    padding: 0; padding-bottom: 0!important; margin: $baseline * 0.5 0 0; width: 100%;    
+                    div { display:none; }
+                    .button.add_to_cart_button.product_type_appointment { display: none; }   
+                }
+            }
+        } 
+       
+    }
+            
+    #content {
+        a:link, a:visited {
+            color:$cswc-color;
+        }
+        a:hover, a:active {
+            color:$accent-mid;
+        } 
+        
+        .woocommerce-message, .woocommerce-info {
+            border-top-color: $cswc-accent;
+            text-align: left;
+            @extend .nested-content; 
+        }
+        
+        .woocommerce-error, .woocommerce-info, .woocommerce-message { 
+            background-color:$white;  
+            a { margin-bottom: $baseline * 0.5; }
+        }
+        
+        .wc-cart-shipping-notice { display: none; }
+        
+        .wc-appointments-appointment-form {
+            a:link, a:visited {
+                color:$cswc-color;
+            }
+            a:hover {   
+                color: white;
+                background-color: $cswc-accent;  
+            }
+            a:active, a.ui-state-active, .selected a {
+                color: white;
+                background-color: $cswc-color;
+            } 
+        }
+    
+        .wc-backward { @extend .cta; }
+        .wc-backward:link, .wc-backward:visited { @extend .cta:link; }
+        .wc-backward:hover, .wc-backward:active { @extend .cta:hover; }
+        
+        
+        .add_to_cart_button, button.button.alt, input[type=submit] { float: right;  }
+        
+        .lost_reset_password input[type=submit] { float: left; }
+        
+        .checkout-button:link, .checkout-button:visited, .add_to_cart_button:link, .add_to_cart_button:visited, button.button.alt, .wc-forward:link, .wc-forward:visited, input[type=submit], input#place_order.button.alt, .view.button:link, .view.button:visited, .pay.button:link, .pay.button:visited,
+        .cancel.button:link, .cancel.button:visited  { 
+            background: white;
+            color: $accent-mid;
+            border-radius:0px!important;
+            background-color:rgba(255,255,255,0.7); border-color: $accent-mid;
+            border-width: 2px; border-style: solid;
+            -webkit-appearance: none;
+        }
+    
+        .add_to_cart_button:hover, .add_to_cart_button:active, .checkout-button:active, .checkout-button:hover, button.button.alt:hover, button.button.alt:active, .view.button:hover, .view.button:active, .pay.button:hover, .pay.button:active, .cancel.button:hover, .cancel.button:active, input#place_order.button.alt:hover, input#place_order.button.alt:active, .wc-forward:hover, .wc-forward:active, input[type=submit]:hover, input[type=submit]:active { 
+            background: white;
+            background-color:rgba(255,255,255,0.9);
+            color: $accent-high!important;
+            border-width: 2px; border-style: solid;
+            border-color: $accent-high; 
+            border-radius:0px;
+            -webkit-appearance: none;
+        }
+    }
+}

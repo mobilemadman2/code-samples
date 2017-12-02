@@ -1,0 +1,1 @@
+<div class="fb-page" data-href="https://www.facebook.com/natashasamsonyoga" data-width="265" data-height="600" data-small-header="true" data-tabs="timeline"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/natashasamsonyoga"><a href="https://www.facebook.com/natashasamsonyoga">Natasha Samson Yoga</a></blockquote></div></div>

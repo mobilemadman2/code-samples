@@ -1,0 +1,78 @@
+p { margin: $paragraph-margin; }
+
+h1 {
+  font-size: 220%;
+  line-height: 130%;
+  font-family: $display-font;
+  font-weight: $display-weight;
+  margin: $paragraph-margin;
+  color: $accent-high;
+  padding-left: 5px;
+  //.archive &, .blog & { color: $body-color; }
+}
+
+h2, h3, h4, h5, h6 {
+  margin: $paragraph-margin;
+  a & {
+    @extend %underlined; padding-bottom: 1px;
+  }
+  a:hover &, a:active & {
+    @extend %underlined-hover;
+  }
+}
+
+h2 {
+  font-size: 120%;
+  a & { text-transform: uppercase;}
+}
+h3 { font-size: 120%;}
+h4 { font-size: 110%; margin-bottom: 3px; }
+h5 { font-weight: $strong-weight; }
+
+h6 {
+  font-family: $display-font; font-weight: $display-weight;
+  #bottom & { font-size: $small-size; margin-bottom:0; }
+}
+
+em {
+  p & { font-style: $em-style;}
+  p & strong { color: $accent-high; font-weight: $font-weight; }
+  p strong & { color: $accent-high; font-style: normal; }
+  h2 & { font-style: normal; color: $accent-alt;}
+  h3 & { font-style: normal; color: $accent-high;}
+  h4 & { font-style: normal; color: $accent-soft-darken;}
+  h5 & { font-style: normal; color: $accent-high;}
+  h6 & { font-style: normal; }
+}
+
+strong {
+  font-weight:$strong-weight;
+  h5 & { font-style: $em-style;}
+}
+
+small { font-size: $small-size; }
+quote { color: $accent-soft-darken; }
+
+a {
+  text-decoration: none;
+  color: $accent-alt;
+  .article-header &, .article-footer &, #cat-menu &, .entry-footer &, #children & h2,
+  &:hover, a:active { color: $accent-high; }
+  h2 &, #nav & { text-transform: uppercase; }
+  /*#branding &, #connect & { color: $body-color; }*/
+  #nav & {
+    color: #fff; padding: 0.5px 3px; display: inline-block; letter-spacing: 0.03em;
+    .fa { color: $accent-soft; }
+  }
+  #children & { text-decoration: none; }
+  #footer & { color: $body-color; @extend %underlined; }
+  #footer &:hover, #footer &:active { color: $body-color; @extend %underlined-alt-hover; }
+  .meta & { @extend %underlined; }
+  .meta &:hover, .meta &:active { @extend %underlined-hover; }
+  .fa, &.fa { border: none!important;}
+  .teaser, & .article-meta { color: $body-color; }
+  .more .icon { fill: $accent-alt; }
+  &:hover, &:active {
+    .more .icon { fill: $accent-high; }
+  }
+}
