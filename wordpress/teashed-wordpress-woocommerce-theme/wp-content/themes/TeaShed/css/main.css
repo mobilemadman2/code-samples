@@ -1,0 +1,769 @@
+@charset "UTF-8";
+/*
+Author URI: http://tidythemes.com/
+Description: <strong>UPDATE</strong> - 4.0+ is here, completely overhauled, yet again. As always, <a href="http://tidythemes.com/concept/#upgrading">use caution when upgrading</a> (tidythemes.com/concept/#upgrading) and <a href="http://tidythemes.com/concept/">learn the TidyThemes concept</a> (tidythemes.com/concept). &nbsp; &rarr; <em><strong>CAUTION</strong>: If you're child theming or have clients that are child theming on top of BlankSlate (not the recommended use), please do not blindly upgrade to newer versions.</em> &nbsp; &rarr; <strong>DESCRIPTION</strong>: BlankSlate is the definitive WordPress HTML5 boilerplate starter theme. We've carefully constructed the most clean and minimalist theme available anywhere for designers/developers to use as a base/foundation to build websites for clients or to build completely custom themes from scratch to release faster. Clean, semi-minified, unformatted and valid code, SEO-friendly, no programmer comments, standardized and as white label as possible and most importantly, CSS reset for cross-browser-compatability and no intrusive visual CSS styles added whatsoever. A perfect skeleton theme that blows any others like it (the subsequent underscores.me for example) completely out of the water, as they're simply too overcomplicated for what people really want in this kind of theme. Now comes with jQuery enqueued and ready to go. &nbsp; &rarr; <strong>SUPPORT</strong>: Please use the <a href="http://tidythemes.com/forum/">official support forum</a> (tidythemes.com/forum). Comments and suggestions for improving BlankSlate, please see "<a href="http://tidythemes.com/tidythemes-sucks/">TidyThemes Sucks!</a>" (tidythemes.com/tidythemes-sucks). Just getting started? <a href="http://tidythemes.com/want-to-learn-css/">Want to learn CSS?</a> (tidythemes.com/want-to-learn-css) &nbsp; &rarr; <strong>WHAT'S NEW?</strong>: We stripped down as much custom, extraneous, superfluous junk code as we could and greatly improved the HTML5 structure. <a href="http://make.wordpress.org/themes/author/chipbennett/">Chip Bennett</a> (make.wordpress.org/themes/author/chipbennett), a highly experienced programmer and official WordPress administrator, worked closely with us to audit the theme code for quality. <a href="http://themes.trac.wordpress.org/changeset?old_path=/blankslate/3.3&new_path=/blankslate/4.0">See</a> (themes.trac.wordpress.org/changeset?old_path=/blankslate/3.3&new_path=/blankslate/4.0) just how much we've revamped things. Last, but not least, BlankSlate has now been <a href="https://github.com/tidythemes/blankslate">opened up on GitHub</a> (github.com/tidythemes/blankslate) if anyone would like to make suggested code additions/improvements. Thank you for using BlankSlate.
+Version: 4.0.2
+License: GNU General Public License
+License URI: https://www.gnu.org/licenses/gpl.html
+Tags: black, blue, white, light, one-column, fluid-layout, responsive-layout, custom-menu, featured-images, microformats, sticky-post, threaded-comments, translation-ready
+Text Domain: blankslate
+
+BlankSlate WordPress Theme © 2011-2014 TidyThemes
+BlankSlate is distributed under the terms of the GNU GPL
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  font-size: 100%;
+  font: inherit;
+  padding: 0;
+  border: 0;
+  margin: 0;
+  vertical-align: baseline; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+.clear {
+  clear: both; }
+
+/* half width between columns*/
+body {
+  font-family: sans-serif;
+  color: #333337;
+  background: #fff;
+  line-height: 131.25%; }
+
+#wrapper {
+  width: 100%;
+  max-width: 1200px;
+  overflow: hidden;
+  margin: 0 auto;
+  position: relative; }
+
+#header {
+  width: 100%;
+  position: relative; }
+  #header #menu {
+    background: url("../images/wood-header.jpg") center;
+    height: 114px;
+    position: relative; }
+    #header #menu ul.menu {
+      float: right;
+      margin-right: 57px;
+      padding-right: 15px;
+      position: absolute;
+      top: 57px;
+      left: 0;
+      width: 100%;
+      text-align: center; }
+      #header #menu ul.menu li {
+        display: inline;
+        margin: 0 8px 0 0;
+        line-height: 57px;
+        vertical-align: middle; }
+        #header #menu ul.menu li a {
+          text-decoration: none;
+          color: #fff; }
+  #header #shop-link {
+    display: none; }
+  #header #social {
+    padding-top: 9px; }
+    #header #social li {
+      display: inline;
+      vertical-align: middle;
+      margin-right: 6px; }
+      #header #social li a {
+        display: inline-block;
+        width: 42px;
+        height: 39px; }
+    #header #social .tw {
+      background: url("../images/Social_Twitter.png") center; }
+    #header #social .fb {
+      background: url("../images/Social_Facebook.png") center; }
+    #header #social .pin {
+      background: url("../images/Social_Pinterest.png") center; }
+    #header #social .in {
+      background: url("../images/Social_Instagram.png") center; }
+  #header #shop {
+    position: absolute;
+    top: 57px;
+    right: 0;
+    padding-top: 38px;
+    width: 100%;
+    text-align: center; }
+    #header #shop a:link, #header #shop a:visited {
+      color: #333337;
+      text-decoration: none; }
+    #header #shop a:hover, #header #shop a:active {
+      color: #000;
+      text-decoration: underline; }
+    #header #shop #cart {
+      line-height: 63px;
+      vertical-align: middle;
+      margin-left: 1em; }
+    #header #shop #account {
+      margin-top: 16px; }
+  #header h2 {
+    font-family: "Pacifico", cursive;
+    font-size: 147.36842%;
+    line-height: 1.3em;
+    text-indent: 0.2em; }
+  #header h3 {
+    font-family: "Pacifico", cursive;
+    font-size: 131.57895%;
+    line-height: 1.3em; }
+  #header #branding {
+    width: 100%;
+    margin-top: 100px;
+    padding-bottom: 30px; }
+  #header #site-title {
+    text-align: center;
+    position: relative;
+    z-index: 100; }
+    #header #site-title .screen-reader-text {
+      position: absolute;
+      top: -500px;
+      left: 0; }
+    #header #site-title img {
+      max-width: 100%; }
+  #header #site-description {
+    text-align: center;
+    position: relative;
+    z-index: 101; }
+  #header #search {
+    -moz-transition: all, 0.4s;
+    -webkit-transition: all, 0.4s;
+    -o-transition: all, 0.4s;
+    transition: all, 0.4s;
+    width: 57px;
+    height: 57px;
+    background-color: white;
+    background: rgba(255, 255, 255, 0.61);
+    position: absolute;
+    top: 0;
+    right: 0;
+    overflow: hidden; }
+    #header #search #searchform {
+      width: 300px;
+      height: 57px; }
+      #header #search #searchform label, #header #search #searchform input {
+        margin: 0;
+        padding: 0;
+        height: 57px;
+        background: none;
+        border: none;
+        position: absolute;
+        top: 0;
+        right: 0; }
+      #header #search #searchform label {
+        width: 57px;
+        background: url("../images/search-box.png") center no-repeat;
+        cursor: pointer; }
+      #header #search #searchform input[type='text'] {
+        font-size: 100%;
+        width: 223px;
+        padding: 0 10px;
+        margin-right: 57px; }
+      #header #search #searchform input[type='submit'], #header #search #searchform .screen-reader-text {
+        position: absolute;
+        top: -500px;
+        left: 0; }
+  #header #search:hover, #header #search.open {
+    width: 300px;
+    background: rgba(255, 255, 255, 0.95); }
+
+#menu-products-menu {
+  height: 50px;
+  overflow: hidden;
+  -moz-transition: height, 0.5s;
+  -webkit-transition: height, 0.5s;
+  -o-transition: height, 0.5s;
+  transition: height, 0.5s; }
+  #menu-products-menu a {
+    display: block;
+    color: #fff;
+    padding: 18px 0;
+    text-align: left;
+    text-indent: 15px;
+    font-size: 126.31579%;
+    text-decoration: none;
+    opacity: 0.9; }
+  #menu-products-menu a:hover {
+    opacity: 1; }
+  #menu-products-menu li span {
+    background: #ae8fb9 url("../images/menu.png") 15px center no-repeat;
+    color: #fff;
+    font-family: "Pacifico", cursive;
+    font-size: 126.31579%;
+    display: block;
+    line-height: 50px;
+    vertical-align: middle;
+    text-align: left;
+    cursor: pointer;
+    text-indent: 45px; }
+  #menu-products-menu li span:hover {
+    background-color: #c3a3ce; }
+  #menu-products-menu li:nth-child(2) a {
+    background: #b51a78; }
+  #menu-products-menu li:nth-child(3) a {
+    background: #e58a9f; }
+  #menu-products-menu li:nth-child(4) a {
+    background: #a6babc; }
+  #menu-products-menu li:nth-child(5) a {
+    background: #7f9495; }
+  #menu-products-menu li:nth-child(6) a {
+    background: #459da4; }
+  #menu-products-menu li:nth-child(7) a {
+    background: #beb978; }
+
+.tab-after {
+  display: block;
+  border-bottom: solid 7px black; }
+
+#menu-products-menu.open {
+  height: 300px; }
+
+/*
+* CONTENT AREA
+*/
+#container {
+  color: #333337;
+  margin-top: 32px;
+  /*
+  * WOO STYLES
+  */ }
+  #container h1 {
+    font-family: "Pacifico", cursive;
+    font-size: 210.52632%;
+    line-height: 1.4em;
+    display: block;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid #c9dce0; }
+  #container h2 {
+    font-size: 168.42105%;
+    line-height: 1.4em;
+    margin-bottom: 1em; }
+  #container h3 {
+    font-size: 126.31579%;
+    line-height: 1.4em;
+    margin-bottom: 1em; }
+  #container h6.display {
+    font-family: "Pacifico", cursive;
+    font-size: 189.47368%;
+    line-height: 1.4em;
+    padding-top: 1em; }
+  #container .related.products h2 {
+    font-family: "Pacifico", cursive;
+    font-size: 189.47368%;
+    line-height: 1.4em; }
+  #container .related.products .add_to_cart_button, #container .related.products .price {
+    display: none; }
+  #container p {
+    margin-bottom: 1em;
+    line-height: 1.5em; }
+  #container .screen-reader-text {
+    position: absolute;
+    left: -5000px;
+    top: 0; }
+  #container a:link, #container a:visited, #container a:hover, #container a:active {
+    color: #333337; }
+  #container h1 a {
+    text-decoration: none; }
+  #container .product_title {
+    padding-bottom: 0.5em !important; }
+  #container .product_meta {
+    clear: both;
+    margin-top: 1em; }
+  #container .amount {
+    font-size: 147.36842%;
+    color: #b51a78; }
+  #container .subscribe {
+    display: block;
+    width: 147px;
+    height: 147px;
+    float: left;
+    margin-right: 64px;
+    background: url("../images/subscribe.gif") center no-repeat; }
+  #container .input-text {
+    height: 44px;
+    margin-right: 1em; }
+  #container .woocommerce-tabs .tabs li {
+    background: white !important;
+    border-width: 0 !important;
+    box-shadow: none !important; }
+  #container .woocommerce-tabs .tabs li.active {
+    border-width: 1px !important; }
+  #container a.button, #container button.button, #container input.button, #container #respond input#submit, #container #content input.button {
+    color: #fff;
+    font-size: 126.31579%;
+    text-align: center;
+    display: block;
+    padding: 0 34px;
+    line-height: 46px;
+    vertical-align: middle;
+    border-color: transparent;
+    box-shadow: none;
+    text-shadow: none;
+    text-decoration: none;
+    background: #b51a78;
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -ms-border-radius: 12px;
+    border-radius: 12px;
+    -moz-transition: all, 0.4s;
+    -webkit-transition: all, 0.4s;
+    -o-transition: all, 0.4s;
+    transition: all, 0.4s;
+    cursor: pointer;
+    margin-right: 1em; }
+  #container a.button:hover, #container button.button:hover, #container input.button:hover, #container #respond input#submit:hover, #container #content input.button:hover {
+    background: #d2449a; }
+  #container .quantity, #container #content .quantity {
+    width: 60px;
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+    zoom: 1;
+    margin-right: 1em; }
+    #container .quantity input.qty, #container #content .quantity input.qty {
+      width: 40px;
+      height: 44px; }
+    #container .quantity .plus, #container .quantity .minus, #container #content .quantity .plus, #container #content .quantity .minus {
+      height: 23px;
+      line-height: 20px;
+      font-size: 18px; }
+  #container form.cart {
+    margin-top: 2em; }
+
+.home #container {
+  margin-top: 0; }
+
+/**
+* FOOTER
+**/
+#copyright .col-content {
+  border-top: 1px solid #c9dce0;
+  margin-top: 36px;
+  padding-top: 36px;
+  padding-bottom: 36px;
+  font-size: 73.68421%; }
+#copyright a {
+  text-decoration: none;
+  color: #333337; }
+
+/**
+*  HOMEPAGE
+**/
+#banner {
+  border-bottom: solid 7px black; }
+
+.soliloguy-controls-direction .soliloquy-prev, .soliloguy-controls-direction .soliloquy-next {
+  display: none; }
+
+#problems {
+  padding-top: 30px; }
+  #problems .question {
+    cursor: pointer; }
+    #problems .question .up {
+      display: none; }
+  #problems .question.open .up {
+    display: inline-block; }
+  #problems .question.open .down {
+    display: none; }
+  #problems ul {
+    text-align: center;
+    overflow: hidden;
+    -moz-transition: height, 0.5s;
+    -webkit-transition: height, 0.5s;
+    -o-transition: height, 0.5s;
+    transition: height, 0.5s;
+    height: 0; }
+  #problems h4 {
+    font-family: "Pacifico", cursive;
+    text-align: center;
+    font-size: 189.47368%;
+    line-height: 50px;
+    vertical-align: middle;
+    text-indent: 0.5em; }
+  #problems li {
+    display: inline-block;
+    margin: 0 20px;
+    /* max-width:20%;*/ }
+
+#press ul {
+  text-align: center;
+  padding-top: 24px; }
+#press li {
+  display: inline-block;
+  margin: 0 25px;
+  max-width: 25%; }
+
+#insta {
+  vertical-align: bottom;
+  position: relative; }
+
+#tea-queen {
+  vertical-align: bottom;
+  overflow: hidden;
+  position: relative; }
+
+#mailing-list {
+  margin: 32px 0;
+  font-size: 110.52632%; }
+  #mailing-list .col-content {
+    background: #a88a63;
+    color: #fff;
+    overflow: hidden;
+    padding: 32px 0 24px; }
+  #mailing-list h6 {
+    padding: 12px 0;
+    margin-bottom: 12px;
+    text-align: center; }
+  #mailing-list a {
+    display: block;
+    border: 2px solid #fff;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    text-align: center;
+    width: 90%;
+    max-width: 200px;
+    text-decoration: none;
+    margin: 0 auto;
+    padding: 12px 20px;
+    color: #fff; }
+
+#promos {
+  margin: 24px 0 0; }
+  #promos li a {
+    display: block;
+    margin-top: 24px;
+    text-align: center; }
+    #promos li a img {
+      max-width: 100%; }
+
+#twitter .col-content {
+  position: relative;
+  margin-top: 30px;
+  background: #a88a63;
+  color: #fff; }
+  #twitter .col-content a {
+    color: #fff; }
+  #twitter .col-content .twitter-timestamp {
+    display: block; }
+#twitter .more {
+  position: absolute;
+  bottom: 12px;
+  right: 22px; }
+#twitter ul {
+  position: relative;
+  top: -18px;
+  background: #a88a63; }
+#twitter li {
+  padding: 33px 22px; }
+
+#blog .col-content {
+  overflow: hidden;
+  background: #cfdda6;
+  margin-top: 30px; }
+#blog a {
+  text-decoration: none;
+  color: #000; }
+#blog .latest-post {
+  color: #000;
+  margin: 0 11px;
+  padding: 22px 0 0;
+  font-size: 73.68421%; }
+  #blog .latest-post a {
+    color: #000; }
+  #blog .latest-post h5 {
+    font-size: 115.78947%; }
+#blog .wp-post-image {
+  margin: 0 11px 11px 0;
+  float: left; }
+
+.menu-footer-menu-container {
+  text-align: center;
+  padding-top: 32px; }
+  .menu-footer-menu-container li {
+    display: inline-block;
+    margin: 0 6px; }
+  .menu-footer-menu-container a {
+    text-decoration: none;
+    color: #333337; }
+  .menu-footer-menu-container a:hover {
+    text-decoration: underline; }
+
+/**
+* GENERIC LAYOUT CLASSES
+**/
+.fluid-row {
+  overflow: hidden; }
+
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+  width: 100%;
+  float: left; }
+  .col-1 .col-content, .col-2 .col-content, .col-3 .col-content, .col-4 .col-content, .col-5 .col-content, .col-6 .col-content, .col-7 .col-content, .col-8 .col-content, .col-9 .col-content, .col-10 .col-content, .col-11 .col-content, .col-12 .col-content {
+    margin: 0 15px; }
+    .col-1 .col-content img, .col-2 .col-content img, .col-3 .col-content img, .col-4 .col-content img, .col-5 .col-content img, .col-6 .col-content img, .col-7 .col-content img, .col-8 .col-content img, .col-9 .col-content img, .col-10 .col-content img, .col-11 .col-content img, .col-12 .col-content img {
+      max-width: 100%; }
+
+.col-1.right, .col-2.right, .col-3.right, .col-4.right, .col-5.right, .col-6.right, .col-7.right, .col-8.right, .col-9.right, .col-10.right, .col-11.right, .col-12.right {
+  float: right; }
+
+.right {
+  float: right; }
+
+/**
+* MEDIA QUERIES
+**/
+@media screen and (min-width: 300px) {
+  .col-11 {
+    width: 91.66667%; }
+
+  .col-10 {
+    width: 83.33333%; } }
+@media screen and (min-width: 500px) {
+  #promos .col-4 {
+    width: 50%; } }
+@media screen and (min-width: 768px) {
+  .col-4, #promos .col-4 {
+    width: 33.33333%; }
+
+  .col-5 {
+    width: 41.66667%; }
+
+  .col-6 {
+    width: 50%; }
+
+  .col-7 {
+    width: 58.33333%; }
+
+  .col-8 {
+    width: 66.66667%; }
+
+  .col-9 {
+    width: 75%; }
+
+  .col-1, .col-2, .col-3 {
+    width: 33.33333%;
+    /* behaves like .col-4 */ }
+
+  #header #menu {
+    height: 57px;
+    margin-bottom: 18px; }
+    #header #menu ul.menu {
+      position: static;
+      width: auto; }
+  #header h2 {
+    font-size: 189.47368%; }
+  #header h3 {
+    font-size: 189.47368%;
+    max-width: 10em; }
+  #header #branding {
+    margin-top: 0; }
+    #header #branding .col-3, #header #branding .col-12 {
+      width: 50%; }
+    #header #branding #site-description {
+      clear: left;
+      text-align: left; }
+      #header #branding #site-description #shop-link {
+        color: #fff;
+        font-size: 126.31579%;
+        text-align: center;
+        display: block;
+        text-decoration: none; }
+        #header #branding #site-description #shop-link span {
+          display: block;
+          max-width: 300px;
+          margin: 24px auto;
+          -moz-border-radius: 12px;
+          -webkit-border-radius: 12px;
+          -ms-border-radius: 12px;
+          border-radius: 12px;
+          background: #a88a63;
+          padding: 14px 0;
+          -moz-transition: all, 0.4s;
+          -webkit-transition: all, 0.4s;
+          -o-transition: all, 0.4s;
+          transition: all, 0.4s;
+          margin-left: 0; }
+      #header #branding #site-description #shop-link:hover span {
+        background: #b49670; }
+    #header #branding #site-title {
+      text-align: left; }
+  #header #shop {
+    text-align: right;
+    width: auto; }
+    #header #shop #account {
+      margin-top: 0; }
+    #header #shop #cart {
+      background: url("../images/shop-bag.png") right center no-repeat;
+      display: block;
+      padding: 6px 48px 6px 0; }
+
+  #twitter, #blog {
+    height: 180px;
+    overflow: hidden; }
+    #twitter .col-content, #blog .col-content {
+      height: 100%; }
+
+  #menu-products-menu .col-2 {
+    width: 100%; }
+
+  #mailing-list h6 {
+    float: left;
+    text-align: left;
+    margin-left: 36px; }
+  #mailing-list a {
+    float: right;
+    margin-right: 36px; } }
+@media screen and (min-width: 768px) and (max-width: 980px -1) and (orientation: landscape) {
+  #menu-products-menu {
+    height: 54px; }
+    #menu-products-menu .col-2 {
+      width: 16.66667%; }
+      #menu-products-menu .col-2 .col-content {
+        margin: 0; }
+    #menu-products-menu li {
+      margin-top: 0;
+      margin-bottom: 0; }
+    #menu-products-menu a {
+      padding-bottom: 24px;
+      -moz-border-radius: 12px;
+      -webkit-border-radius: 12px;
+      -ms-border-radius: 12px;
+      border-radius: 12px;
+      text-align: center;
+      text-indent: 0; }
+    #menu-products-menu .header {
+      display: none; } }
+@media screen and (min-width: 980px) {
+  .col-1 {
+    width: 8.33333%; }
+
+  .col-2 {
+    width: 16.66667%; }
+
+  .col-3 {
+    width: 25%; }
+
+  #header #menu ul.menu li {
+    margin: 0 22px 0 0;
+    text-align: left; }
+  #header #branding #site-title {
+    position: absolute;
+    top: 57px;
+    left: 0;
+    margin-top: 30px;
+    text-align: center; }
+  #header #branding .col-12 {
+    width: 100%; }
+  #header #branding .col-3 {
+    width: 25%; }
+
+  #menu-products-menu {
+    height: 54px; }
+    #menu-products-menu .col-2 {
+      width: 16.66667%; }
+    #menu-products-menu li {
+      margin-top: 0;
+      margin-bottom: 0; }
+    #menu-products-menu a {
+      padding-bottom: 24px;
+      -moz-border-radius: 12px;
+      -webkit-border-radius: 12px;
+      -ms-border-radius: 12px;
+      border-radius: 12px;
+      text-align: center;
+      text-indent: 0; }
+    #menu-products-menu .header {
+      display: none; }
+
+  #problems .question {
+    display: none; }
+  #problems ul, #problems ul.open {
+    min-height: 100px;
+    height: auto;
+    margin-top: 30px; }
+  #problems h4 {
+    font-size: 252.63158%;
+    text-align: left; }
+
+  #press li {
+    max-width: 11%; }
+
+  #blog .latest-post {
+    margin: 0 22px; }
+  #blog .wp-post-image {
+    margin: 0 22px 22px 0; }
+
+  #twitter ul {
+    background: #a88a63 url("../images/twitter.png") no-repeat 32px center; }
+  #twitter li {
+    padding: 33px 22px 33px 122px; }
+
+  #tea-queen {
+    height: 190px; }
+    #tea-queen img {
+      position: absolute;
+      bottom: 0;
+      left: 15px; }
+
+  #insta {
+    height: 194px; }
+    #insta ul {
+      position: absolute;
+      bottom: 0;
+      left: 15px; }
+
+  #container .related ul.products li.product, #container .related ul li.product, #container .upsells.products ul.products li.product, #container .upsells.products ul li.product {
+    width: 16.66667%; }
+  #container .woocommerce-tabs ul.tabs {
+    width: 66.66667%; } }
+@media screen and (min-width: 1040px) {
+  #header #shop {
+    z-index: 102; }
+  #header #site-description {
+    margin-top: 30px; }
+  #header #branding .col-3 {
+    width: 25%; }
+  #header #branding #site-title {
+    margin-top: 40px; }
+
+  #problems li {
+    margin: 0 10px; }
+
+  #press li {
+    margin: 0 51px 0 0; }
+  #press li:last-child {
+    margin: 0; } }
+@media screen and (min-width: 1200px) {
+  #header h2 {
+    font-size: 210.52632%; }
+  #header h3 {
+    font-size: 210.52632%; }
+
+  #problems li {
+    margin: 0 20px; }
+
+  #press li {
+    max-width: 50%; } }

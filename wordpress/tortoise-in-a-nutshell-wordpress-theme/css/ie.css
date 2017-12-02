@@ -1,0 +1,60 @@
+/*
+Styles for older IE versions (previous to IE9).
+*/
+
+	.feature .entry-thumbnail { float: left; padding: 0.5em 2em 0 0;  }
+
+	#main-container  { 
+		background: url(../images/main-bg.jpg) no-repeat bottom right fixed; 
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+	#menu-main_menu { padding: 0; text-align:left;}
+	#page #navbar a { font-size: 0.8em;}
+	.footer-menu { display: block; }
+	.entry-thumbnail { float: right; padding: 0 0 0 2em;  }
+	.feature .summary {	height: 145px; margin-top: 7px; overflow: hidden; }
+	.feature .more {	display: block; text-align: right; }
+	#page .banner .entry-header.contact { width: 45%; padding: 2em 0; position: absolute; top:0; left:0;}
+	#page .banner .contact-form { width: 50%; float: right; }
+
+
+/* Footer styles */
+	#colophon { text-align: left; }
+	#colophon .menu-main_menu-container { width: 25%; float: left; }
+	.footer-menu li { display: block;}
+	#connect { width:49%; float: left; overflow: hidden; border-right: 1px solid #999; border-left: 1px solid #999; }
+	#connect div { width: 46%; height: 100%; }
+	#connect .one {  padding-left: 4%; float: left;}
+	#connect .two { padding-right: 4%; float: right;}
+	.site-info { width: 25%; float: left; margin-top: 8em; }
+	.site-info p { margin-left: 8%; }
+	/* header styles */
+	.site-header .social  { display: block; float: right; margin-left: 0;}
+	/* banner styles */
+	#page .banner { max-height: 500px; border-bottom: 3px solid #fff;}
+	#page .banner .entry-header { width: 45%; padding: 2em 0; position: absolute; top:0; left:0;}
+	#page .banner .entry-header.contact { width: 35%;}
+	#page .banner .entry-gallery { width: 50%; float: right; }
+	#page .banner .contact-form { width: 65%; }
+	#main  h1 { font-size: 1.6em;}
+	.features .feature {  width: 42%; float: left;}
+	
+	#page #navbar a { font-size: 1em;}
+	#main  h1 { font-size: 2.6em;}
+	#page article.category-blog.inner { width: 705px; right: 117px;}
+	#page .category-blog .banner .inner { width: 100%; left: 0;}
+	aside#blog-nav  { position: relative; }
+	.category aside#blog-nav  ul { position: absolute; top: 0; left: 705px;  }
+	.category #blog-nav li { display: block;}
+	
+	.social { overflow: hidden;}
+	.social li { zoom: 1; float: left;}
+	#page .feature { *width: 80%; }
+	
+	#page .entry-gallery { height: 400px;}
+	#page.single #main .banner .inner, #page #main .banner .inner  { max-width: 940px; }
+	#page #navbar .inner { max-width: 940px; }
+	#page #navbar .social { *position: absolute; top: 0; right: 0;}
