@@ -1,0 +1,294 @@
+<md-card md-whiteframe class="ff-card">
+  <md-toolbar class="md-card-image">
+    <div class="md-toolbar-tools">
+      <h2>SCHOOL SUBSCRIPTION DETAILS</h2>
+    </div>
+  </md-toolbar>
+
+  <md-content class="ff-sub-details" layout="row" flex class="md-padding">
+    <div flex class="ff-style-p-l-15">
+      <div class="md-padding">
+        <p>
+          <b>Start date</b><br>
+          {{account.getDateString(account.school.Membership_start__c)}}
+        </p>
+        <p>
+          <b>End date</b><br>
+          {{account.getDateString(account.school.Membership_end__c)}}
+        </p>
+        <p>({{account.getRemaining()}} until your membership expires)</p>
+      </div>
+    </div>
+    <div layout="column" class="ff-circlewrap">
+      <div class="ff-circle">
+        <div class="ff-circlenumber">{{account.getDaysRemaining()}}</div>
+        <div class="ff-circleinnerlabel">Days<br>left</div>
+      </div>
+    </div>
+  </md-content>
+  <md-divider></md-divider>
+
+  <md-content flex class="md-padding">
+    <md-button
+      aria-label="Change password"
+      ng-click="account.showPasswordTab = !account.showPasswordTab">
+      Change password
+    </md-button>
+    <div ng-show="account.showPasswordTab" flex class="md-padding">
+      <form name="changePasswordForm" required>
+        <md-input-container class="md-block" flex="50">
+          <label>Current password</label>
+          <input
+            required
+            maxlength="100"
+            type="password"
+            name="currentPassword"
+            ng-model="account.currentPass">
+          <div class="ff-hint">
+            Your current password is required to make changes to your account.
+          </div>
+          <div ng-messages="changePasswordForm.currentPassword.$error">
+            <div ng-message="required">This field is required</div>
+            <div ng-message="password">You must enter a valid password</div>
+          </div>
+        </md-input-container>
+        <div layout="row" flex>
+          <md-input-container flex="2">
+            <label>New password</label>
+            <input
+              required
+              minlength="10"
+              maxlength="100"
+              type="password"
+              name="newPassword"
+              ng-model="account.newPass">
+            <div ng-messages="changePasswordForm.newPassword.$error">
+              <div ng-message="required">This field is required</div>
+              <div ng-message="password">You must enter a valid password</div>
+              <div ng-message="minlength">
+                Must contain at least 10 characters
+              </div>
+            </div>
+          </md-input-container>
+          <div class="md-padding" flex="1">
+            <label>Password Strength</label>
+            <div class="md-block bar-outer">
+              <div
+                class="md-block bar-inner"
+                ng-style="{width: account.getPasswordStrength()}">
+              </div>
+            </div>
+          </div>
+        </div>
+        <md-input-container class="md-block" flex="50">
+          <label>Confirm new password</label>
+          <input
+            minlength="10"
+            maxlength="100"
+            type="password"
+            name="confirmPassword"
+            compare="account.newPass"
+            ng-model="account.confirmPass">
+            <div ng-messages="changePasswordForm.confirmPassword.$error">
+              <div ng-message="required">This field is required</div>
+              <div ng-message="compare">Passwords don't match</div>
+              <div ng-message="minlength">
+                Must contain at least 10 characters
+              </div>
+            </div>
+        </md-input-container>
+        <md-button
+          aria-label="Save"
+          ng-click="account.changePassword()"
+          ng-disabled="changePasswordForm.$invalid"
+          class="md-raised md-primary">
+          Save
+        </md-button>
+        <md-button
+          aria-label="Cancel"
+          ng-click="account.closePasswordTab()">
+          Cancel
+        </md-button>
+      </form>
+    </div>
+  </md-content>
+  <md-divider></md-divider>
+  <md-content flex class="md-padding">
+    <md-button
+      aria-label="Change email address"
+      ng-click="account.showEmailTab = !account.showEmailTab">
+      Change email address
+    </md-button>
+    <div ng-show="account.showEmailTab" flex class="md-padding">
+      <form name="changeEmailForm" required>
+        <md-input-container class="md-block" flex="50">
+          <label>Current password</label>
+          <input
+            required
+            maxlength="100"
+            type="password"
+            name="currentPassword"
+            ng-model="account.currentPass">
+          <div class="ff-hint">
+            Your current password is required to make changes to your account.
+          </div>
+          <div ng-messages="changeEmailForm.currentPassword.$error">
+            <div ng-message="required">This field is required</div>
+            <div ng-message="password">You must enter a valid password</div>
+          </div>
+        </md-input-container>
+        <md-input-container class="md-block" flex="50">
+          <label>New email address</label>
+          <input
+            required=""
+            type="email"
+            minlength="10"
+            maxlength="100"
+            name="newEmail"
+            ng-pattern="/^.+@.+\..+$/"
+            ng-model="account.newEmail">
+            <div class="ff-hint">
+              We will never share your e-mail address with third parties.
+            </div>
+            <div ng-messages="changeEmailForm.newEmail.$error">
+              <div ng-message="required">This field is required</div>
+              <div ng-message="email">Please enter a valid email address</div>
+            </div>
+        </md-input-container>
+        <md-button
+          aria-label="Save"
+          ng-click="account.changeEmail()"
+          ng-disabled="changeEmailForm.$invalid"
+          class="md-raised md-primary">
+          Save
+        </md-button>
+        <md-button
+          aria-label="Cancel"
+          ng-click="account.closeEmailTab()">
+          Cancel
+        </md-button>
+      </form>
+    </div>
+  </md-content>
+</md-card>
+
+<md-card md-whiteframe class="ff-card">
+  <md-toolbar class="md-card-image">
+    <div class="md-toolbar-tools">
+      <h2 flex>USERS</h2>
+      <md-button
+        aria-label="Filters"
+        class="md-icon-button"
+        ng-click="account.addAccount()">
+        <i class="material-icons">add</i>
+      </md-button>
+      <md-input-container class="ff-searchinput" ng-show="account.showSearch">
+        <input
+          type="search"
+          aria-label="Search"
+          ng-model="account.searchText">
+      </md-input-container>
+      <md-button
+        aria-label="Search"
+        class="md-icon-button"
+        ng-click="account.showSearch = !account.showSearch">
+        <i class="material-icons">search</i>
+      </md-button>
+    </div>
+  </md-toolbar>
+
+  <md-tabs md-dynamic-height md-border-bottom>
+    <md-tab label="ACTIVE">
+      <md-content class="ff-table">
+        <div class="ff-table-h" layout="row">
+          <div flex="20">First Name</div>
+          <div flex="20">Last Name</div>
+          <div flex="40">Email address</div>
+          <div flex="20">Actions</div>
+        </div>
+
+        <md-divider></md-divider>
+
+        <md-list>
+          <md-list-item
+            ng-repeat="user in account.users | filter:{Enabled__c:true}:account.searchText">
+            <div flex="20">{{user.FirstName}}</div>
+            <div flex="20">{{user.LastName}}</div>
+            <div flex="40">{{user.Email}}</div>
+            <div flex="20" class="ff-user-status">
+              <a href ng-click="account.disableUser(user.Id)">Disable</a>
+            </div>
+          </md-list-item>
+        </md-list>
+      </md-content>
+    </md-tab>
+
+    <md-tab label="INACTIVE">
+      <md-content class="ff-table">
+        <div class="ff-table-h" layout="row">
+          <div flex="20">First name</div>
+          <div flex="20">Last name</div>
+          <div flex="40">Email address</div>
+          <div flex="20">Actions</div>
+        </div>
+
+        <md-divider></md-divider>
+
+        <md-list>
+          <md-list-item
+            ng-repeat="user in account.users | filter:{Enabled__c:false}:account.searchText">
+            <div flex="20">{{user.FirstName}}</div>
+            <div flex="20">{{user.LastName}}</div>
+            <div flex="40">{{user.Email}}</div>
+            <div flex="20" class="ff-user-status">
+              <a href ng-click="account.enableUser(user.Id)">Enable</a>
+            </div>
+          </md-list-item>
+        </md-list>
+      </md-content>
+    </md-tab>
+  </md-tabs>
+</md-card>
+
+<md-card md-whiteframe class="ff-card">
+  <md-toolbar class="md-card-image">
+    <div class="md-toolbar-tools">
+      <h2>NOTIFICATION SETTINGS</h2>
+    </div>
+  </md-toolbar>
+
+  <md-content class="ff-style-p-l-15" layout="row" flex>
+    <div flex="40" class="md-padding">
+      <md-input-container class="md-block">
+        <label>Notifications Frequency</label>
+        <md-select
+          ng-change="account.changeFrequency()"
+          ng-model="account.user.profile.Notification_frequency__c">
+          <md-option
+            ng-repeat="frequency in account.frequencies" value="{{frequency}}">
+            {{frequency}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+
+      <p>
+        Reminder emails will only be sent if there are any new sign ups, updates
+        or unread emails.
+      </p>
+    </div>
+
+    <div flex="40" class="md-padding">
+      <p>
+        <div><b>Last email date</b></div>
+        <div>
+          {{account.getDateString(account.user.profile.Last_notification_frequency__c)}}
+        </div>
+      </p>
+
+      <p>
+        <div><b>Next email date</b></div>
+        <div>{{account.getNextEmailDate()}}</div>
+      </p>
+    </div>
+  </md-content>
+</md-card>
