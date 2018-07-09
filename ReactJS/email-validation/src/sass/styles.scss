@@ -1,0 +1,96 @@
+@import 'variables';
+
+body {
+  font-size: 16px;
+  color: $font-color;
+  font-family: $font;
+  background: $bg-color;
+  font-weight: $font-weight;
+  line-height: 1.44em;
+  .reader {
+    top:-100px;
+    position: fixed;
+  }
+}
+
+header {
+  width: 90%;
+  max-width: 500px;
+  margin: 10vh auto 5vh;
+  font-weight: $display-font-weight;
+  h1 {
+    color: inherit;
+    font-size: 120%;
+    margin: 0 0 27px;
+    font-weight: 500;
+    @media only screen and (min-width: 550px) {
+      font-size: 220%;
+    }
+  }
+}
+p {
+  font-size: 108%;
+  line-height: inherit;
+}
+form {
+  width: 90%;
+  margin: auto;
+  max-width: 500px;
+  p, label, input, ul { width: 99%; }
+  &.unFocus { .autoComplete { display: none;} }
+  .autoComplete {
+    margin: 0;
+    padding: 0;
+    text-indent: 0;
+    border-left: 1px solid $default-color;
+    border-right: 1px solid $default-color;
+    li {
+      font-size: 80%;
+      cursor: pointer;
+      padding: 0.7em 0;
+      background: $grey;
+      text-indent: 1.2em;
+      list-style-type: none;
+      font-weight: $display-font-weight;
+      border-bottom: 1px solid $default-color;
+      &:hover, &:active, &.active { background: $white; }
+    }
+  }
+  input {
+    outline: none;
+    font-size: 108%;
+    padding: 0.8em 0;
+    margin-top: 12px;
+    text-indent: 0.8em;
+    font-family: inherit;
+    font-weight: $display-font-weight;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    border: 1px solid $default-color;
+    &:focus { border-color: $black; }
+  }
+  small.suggestion {
+    font-size: 80%;
+    line-height: 2em;
+    color: $brand-color;
+  }
+  small.status {
+    font-size: 80%;
+    display: block;
+    color: $default-color;
+  }
+  &.valid, &.deliverable, &.risky {
+    small {color: $valid-color; }
+    input { border-color: $valid-color; }
+  }
+  &.invalid, &.unknown {
+    small {color: $invalid-color; }
+    input { border-color: $invalid-color; }
+  }
+  @media only screen and (min-width: 550px) {
+    font-size: 120%;
+  }
+}

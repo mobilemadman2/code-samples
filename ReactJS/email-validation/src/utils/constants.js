@@ -1,0 +1,55 @@
+export const API_SERVICE = 'https://api.kickbox.com/v2/verify?';
+export const API_KEY = 'live_83cf094cf7e7e0c1eb18c99f47ca70af98729845d77637657104332459eb9d73';
+
+export const STATUS_MESSAGES = {
+  'valid': 'Verifying...',
+  'deliverable': 'Success!',
+  'risky': 'Success!',
+  'default': 'Type your email address below',
+  'invalid': 'Please enter a valid email address',
+  'unknown': 'Email address was not recognised',
+  'undeliverable': 'Email address was not recognised',
+  'did_you_mean': 'Email address was not recognised, maybe you meant '
+}
+
+export const POPULAR_DOMAINS = [
+  {name:"aol.com",id:'d1',popular:true},
+  {name:"att.net",id:'d2',popular:false},
+  {name:"bellsouth.net",id:'d3',popular:false},
+  {name:"blueyonder.co.uk",id:'d4',popular:false},
+  {name:"bt.com",id:'d5',popular:false},
+  {name:"btinternet.com",id:'d6',popular:false},
+  {name:"charter.net",id:'d7',popular:false},
+  {name:"comcast.net",id:'d8',popular:false},
+  {name:"cox.net",id:'d9',popular:false},
+  {name:"earthlink.net",id:'d10',popular:false},
+  {name:"facebook.com",id:'d11',popular:false},
+  {name:"freeserve.co.uk",id:'d12',popular:false},
+  {name:"gmail.com",id:'d13',popular:true},
+  {name:"google.com",id:'d14',popular:false},
+  {name:"googlemail.com",id:'d15',popular:true},
+  {name:"gmx.com",id:'d16',popular:false},
+  {name:"hotmail.com",id:'d17',popular:true},
+  {name:"hotmail.co.uk",id:'d18',popular:true},
+  {name:"juno.com",id:'d19',popular:false},
+  {name:"live.com",id:'d20',popular:true},
+  {name:"live.co.uk",id:'d21',popular:true},
+  {name:"mac.com",id:'d22',popular:true},
+  {name:"mail.com",id:'d23',popular:false},
+  {name:"me.com",id:'d24',popular:false},
+  {name:"msn.com",id:'d25',popular:false},
+  {name:"ntlworld.com",id:'d26',popular:false},
+  {name:"o2.co.uk",id:'d27',popular:false},
+  {name:"orange.net",id:'d28',popular:false},
+  {name:"sbcglobal.net",id:'d29',popular:false},
+  {name:"shaw.ca",id:'d30',popular:true},
+  {name:"sky.com",id:'d31',popular:false},
+  {name:"talktalk.co.uk",id:'d32',popular:false},
+  {name:"tiscali.co.uk",id:'d33',popular:false},
+  {name:"verizon.net",id:'d34',popular:false},
+  {name:"virginmedia.com",id:'d35',popular:false},
+  {name:"virgin.net",id:'d36',popular:false},
+  {name:"yahoo.com",id:'d37',popular:true},
+  {name:"yahoo.co.uk",id:'d38',popular:true},
+  {name:"wanadoo.co.uk",id:'d39',popular:false}
+];

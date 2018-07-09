@@ -1,0 +1,90 @@
+@import url(https://fonts.googleapis.com/css?family=Quicksand:300,500);
+body {
+  font-size: 16px;
+  color: #2c2c2c;
+  font-family: "Quicksand", sans-serif;
+  background: #fff;
+  font-weight: 500;
+  line-height: 1.44em; }
+  body .reader {
+    top: -100px;
+    position: fixed; }
+
+header {
+  width: 90%;
+  max-width: 500px;
+  margin: 10vh auto 5vh;
+  font-weight: 300; }
+  header h1 {
+    color: inherit;
+    font-size: 120%;
+    margin: 0 0 27px;
+    font-weight: 500; }
+    @media only screen and (min-width: 550px) {
+      header h1 {
+        font-size: 220%; } }
+
+p {
+  font-size: 108%;
+  line-height: inherit; }
+
+form {
+  width: 90%;
+  margin: auto;
+  max-width: 500px; }
+  form p, form label, form input, form ul {
+    width: 99%; }
+  form.unFocus .autoComplete {
+    display: none; }
+  form .autoComplete {
+    margin: 0;
+    padding: 0;
+    text-indent: 0;
+    border-left: 1px solid #B6B9BF;
+    border-right: 1px solid #B6B9BF; }
+    form .autoComplete li {
+      font-size: 80%;
+      cursor: pointer;
+      padding: 0.7em 0;
+      background: #f7f7f7;
+      text-indent: 1.2em;
+      list-style-type: none;
+      font-weight: 300;
+      border-bottom: 1px solid #B6B9BF; }
+      form .autoComplete li:hover, form .autoComplete li:active, form .autoComplete li.active {
+        background: #fff; }
+  form input {
+    outline: none;
+    font-size: 108%;
+    padding: 0.8em 0;
+    margin-top: 12px;
+    text-indent: 0.8em;
+    font-family: inherit;
+    font-weight: 300;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 1px solid #B6B9BF; }
+    form input:focus {
+      border-color: #2c2c2c; }
+  form small.suggestion {
+    font-size: 80%;
+    line-height: 2em;
+    color: #ff5722; }
+  form small.status {
+    font-size: 80%;
+    display: block;
+    color: #B6B9BF; }
+  form.valid small, form.deliverable small, form.risky small {
+    color: #45d89d; }
+  form.valid input, form.deliverable input, form.risky input {
+    border-color: #45d89d; }
+  form.invalid small, form.unknown small {
+    color: #ff5722; }
+  form.invalid input, form.unknown input {
+    border-color: #ff5722; }
+  @media only screen and (min-width: 550px) {
+    form {
+      font-size: 120%; } }
+
+/*# sourceMappingURL=app.css.map */
