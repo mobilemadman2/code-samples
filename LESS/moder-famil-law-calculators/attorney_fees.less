@@ -1,0 +1,60 @@
+body.fl-builder {
+  #attorney-fees-app-root {
+    .attorney-fees-app {
+      .form-row {
+        &:nth-child(2) {
+          label { width: 25%; }
+          .radio-container {
+            width: 70%;
+            margin-left: 5%;
+            display: inline-block;
+            label { width: auto; }
+          }
+        }
+        &:nth-child(3), &:nth-child(6) {
+          label { &:extend(.half-left); }
+          select { &:extend(.half-right); }
+        }
+        &:nth-child(4), &:nth-child(5), &:nth-child(8)  {
+          & > label { &:extend(.yes-no-label); }
+          .radio-container {
+            &:extend(.wrap-yes-no);
+            label {
+              &:extend(.yes-no-radio-label);
+              input[type=radio] {
+                &:extend(.yes-no);
+                &:after { &:extend(.yes-no-unchecked); }
+                &:checked {
+                  &:after {
+                    &:extend(.yes-no-checked);
+                  }
+                }
+              }
+              &:first-child input[type=radio]:after { &:extend(.yes); }
+              &:last-child input[type=radio]:after { &:extend(.no); }
+            }
+          }
+        }
+        &:nth-child(7) {
+          padding-bottom: 2.6em;
+          .rangeslider-horizontal {
+            background-color: @parent-3-color;
+            .rangeslider__fill { background-color: @accent-color; }
+            .rangeslider__labels {
+              margin-top:0.5em;
+              .rangeslider__label-item {
+                text-align: center;
+                border-bottom: 1px solid;
+                &:before {
+                  content: '^';
+                  display: block;
+                  line-height: 0.5em;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

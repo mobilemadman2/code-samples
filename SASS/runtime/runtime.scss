@@ -1,0 +1,115 @@
+body {
+	color: $mainColor;
+	background: $white;
+}
+h1 {
+	color: $secondaryColor;
+}
+h2, .specialHeading {
+	color: $secondaryColor;
+}
+
+a {
+	color: $accentColor;
+	&:hover, &:active, &:focus { color: $secondaryColor; }
+	#headerBar &, .fancy & { color: $white; }
+	&#login {
+		top: -5px;
+    width: 80px;
+		float: right;
+    position: relative;
+		small {
+			left:0;
+			right:0;
+			bottom: -26px;
+			display: block;
+			position: absolute;
+		}
+	}
+}
+
+.cta {
+	color: $white;
+	background: $translucentAccent;
+	&:hover, &:active, &:focus {
+		color: $white;
+		background: $accentColor;
+	}
+}
+
+#headerBar {
+	color: $white;
+	background: $translucentDark;
+	#logo { opacity:1 }
+	#hamburger { cursor: pointer; }
+	.navMenu { opacity: 0; }
+	&.open {
+		.navMenu {
+			opacity:1;
+			background: $secondaryColor;
+		}
+		@media screen and (min-width: $breakSmall) {
+			#logo { opacity:0 }
+			.navMenu { background: transparent; }
+		}
+	}
+	@media screen and (min-width: $breakMed) {
+		.navMenu, #logo { opacity: 1; }
+		#hamburger { display: none; }
+		&.open {
+			.navMenu, #logo { opacity: 1; background: transparent; }
+			#hamburger { display: none; }
+		}
+	}
+}
+
+.fancy {
+	color: $white;
+	background-position: center;
+	background-attachment: fixed;
+	background-color: $accentColor;
+	background-image: url(../images/background.png);
+	&:before {
+		opacity: 0.9;
+		background-color: $accentColor;
+	}
+}
+
+#hero {
+	background: $accentColor;
+	#more {
+		opacity: 0.9;
+		&:hover, &:active, &:focus { opacity:1; }
+	}
+	.slide {
+		opacity:0;
+		-webkit-transition: opacity 0.5s;
+		-moz-transition: opacity 0.5s;
+		transition: opacity 0.5s;
+		&.on { opacity:1; }
+	}
+	.slideshowTitle {
+		strong { color: $accentColor; }
+		.slide {
+			opacity:0.3;
+			&.on {
+				opacity:1;
+				color: $accentColor;
+			}
+		}
+	}
+	.slideshowContent {
+		& > .slide {
+			border: 2px solid $accentColor;
+			background: $translucentWhite;
+		}
+		.dot.on { background: $white; }
+	}
+}
+
+#footerBar {
+	border-top: 1px solid $secondaryColor;
+	.contactInfo {
+		color: $secondaryColor;
+	}
+}

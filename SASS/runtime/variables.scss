@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600');
+
+$fontFamily: 'Open Sans', sans-serif;
+$fontSize: 18px;
+$lineHeight: 24px;
+$normalWeight: 300;
+$strongWeight: 500;
+$heavyWeight: 600;
+
+$white: #fff;
+$translucentWhite: rgba(255,255,255,0.85);
+$translucentAccent: rgba(0,168,167,0.5);
+$translucentDark: rgba(0,61,99,0.8);
+
+$mainColor: #1e1b1e;
+$secondaryColor: #003d63;
+$accentColor: #00a8a7;
+
+$maxWidth: 1120px;
+$midWidth: 800px;
+
+$breakSmall: 500px;
+$breakMed: 768px;
+$breakLarge: 960px;
+$breakMax: 1244px;

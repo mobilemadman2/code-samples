@@ -1,0 +1,106 @@
+body.fl-builder {
+  .flyout {
+    #assets-debts-app-root {
+      .assets-debts-app {
+        .form-row {
+          &:last-child { border-bottom:none; }
+          table {
+            display: block;
+            width: 100%;
+            position: relative;
+            padding-bottom: 4em;
+            thead { display: none; }
+            tbody {
+              display: block;
+              width: 100%;
+              tr {
+                display: block;
+                width: 100%;
+                td {
+                  padding: 8px 0;
+                  display: block;
+                  width: 100%;
+                  overflow: hidden;
+                  &.row-label { display: none; }
+                  &:nth-child(2):before { content: 'Marital Assets'; }
+                  &:nth-child(3):before { content: 'Marital Debts'; }
+                  &:nth-child(4):before { content: 'Net'; }
+                  &:before {
+                    &:extend(.half-left);
+                  }
+                  input, span {
+                    &:extend(.half-right);
+                  }
+                }
+                &.you {
+                  border-bottom: @row-border;
+                  &:before {
+                    padding: 0 0 8px;
+                    display: block;
+                    content: 'You';
+                    color: @parent-1-color;
+                  }
+                }
+                &.spouse {
+                  margin-top:8px;
+                  border-bottom: @row-border;
+                  &:before {
+                    padding: 8px 0;
+                    display: block;
+                    content: 'Your Spouse';
+                    color: @parent-2-color;
+                  }
+                }
+                .equalizing-payment-col {
+                  height: 4em;
+                  position: absolute;
+                  bottom:0;
+                  left:0; right:0;
+                  text-align: left;
+                  &:before {
+                    text-align: left;
+                    display: block;
+                    font-weight: 400;
+                    margin-bottom: 6px;
+                    color: @accent-color;
+                    content: 'Equalizing Payment';
+                    //vertical-align: top;
+                  }
+                  & > div {
+                    //vertical-align: top;
+                    div { &:extend(.half-left); }
+                    span { &:extend(.half-right); float:right; }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  #assets-debts-app-root {
+    .assets-debts-app {
+      .form-row {
+        table {
+          .equalizing-payment-col {
+            background: transparent;
+            padding-top: 0.3em;
+            border-top: 1px solid @accent-color;
+            border-bottom: 1px solid @accent-color;
+            label {
+              width: 100%;
+              display: block;
+              margin-right:0;
+              font-weight: 700;
+              margin-bottom:7px;
+              padding-bottom: 0.3em;
+              text-transform: uppercase;
+              border-bottom: 1px solid @accent-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}

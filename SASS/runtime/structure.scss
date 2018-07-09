@@ -1,0 +1,401 @@
+body {
+	margin:0;
+	padding:0;
+
+	text-align: center;
+	@media screen and (min-width: $breakMed) {
+		text-align: left;
+		.text-center {
+			text-align: center;
+		}
+	}
+
+	.wrapper {
+		width: 90%;
+		margin-left: auto;
+		margin-right: auto;
+		&.bottom {
+			padding-top: 18px;
+		}
+		@media screen and (min-width: $breakMax) {
+			width: $maxWidth;
+		}
+		&.slim {
+			@media screen and (min-width: $breakLarge) {
+				max-width: $midWidth;
+			}
+		}
+	}
+
+	@media screen and (min-width: $breakMed) {
+		.colLeft, .colRight {
+			width: 48%;
+			display: inline-block;
+		}
+		.colLeft { margin-right: 3%; }
+	}
+
+	#headerBar {
+		top:0;
+		left:0;
+		right:0;
+		z-index: 1000;
+		position: fixed;
+		padding: 15px 0;
+		text-align: left;
+		.navMenu, #logo { vertical-align: top; }
+		#hamburger { margin-right: 6px; }
+		#logo {
+			width: 114px;
+			margin-top: -3px;
+			display: inline-block;
+			span { display: none; }
+			svg {
+				width: 100%;
+				height: auto;
+				display: block;
+			}
+			@media screen and (min-width: $breakMed) {
+				margin-top: 0;
+			}
+		}
+		.navMenu {
+			left: 20px;
+			top: 60px;
+			padding: 5px 0;
+			position: absolute;
+			display: inline-block;
+			li { padding: 5px; }
+			@media screen and (min-width: $breakSmall) {
+				left: 50px;
+				top: 15px;
+				padding: 0;
+				li {
+					padding:0;
+					display: inline-block;
+					a { padding-right:0; }
+				}
+			}
+			@media screen and (min-width: $breakMed) {
+				position: static;
+				li {
+					font-size: 80%;
+					margin-left: 0.5em;
+					a { padding-right: 0.6em; }
+				}
+			}
+			@media screen and (min-width: $breakLarge) {
+				li { font-size: 100%; margin-left: 0.8em; }
+			}
+		}
+	}
+
+	#pageContent {
+		margin:0;
+		padding:0;
+		width: 100%;
+		z-index: 800;
+		section {
+			width: 100%;
+			padding-top: 24px;
+			padding-bottom: 24px;
+			.articleList {
+				margin-bottom: 1em;
+				li {
+					margin-top: 1em;
+				}
+			}
+			.iconList {
+				padding-top: 24px;
+				padding-bottom: 24px;
+				@media screen and (min-width: $breakMed) {
+					padding-top: 44px;
+					padding-bottom: 44px;
+				}
+				li {
+					width: 48%;
+					text-align: center;
+					vertical-align: top;
+					display: inline-block;
+					@media screen and (min-width: $breakMed) {
+						width: 24%;
+					}
+					h4 {
+						margin: 0.5em 1em;
+						&.single {
+							padding-top: 0.5em;
+						}
+					}
+					img {
+						height: 5em;
+						width: auto;
+					}
+				}
+			}
+			.imageList {
+				padding-top: 24px;
+				padding-bottom: 24px;
+				@media screen and (min-width: $breakMed) {
+					padding-top: 44px;
+					padding-bottom: 44px;
+				}
+				li {
+					width: 48%;
+					margin-bottom: 1em;
+					text-align: center;
+					display: inline-block;
+					vertical-align: middle;
+					@media screen and (min-width: $breakMed) {
+						width: 32%;
+					}
+					@media screen and (min-width: $breakMax) {
+						width: 18%;
+					}
+					img { width: 80%; }
+				}
+			}
+			&.fancy{
+				position: relative;
+				background-size: cover;
+				background-repeat: no-repeat;
+				&:before {
+					top:0;
+					left:0;
+					right:0;
+					bottom:0;
+					z-index: 0;
+					content: ' ';
+					position: absolute;
+				}
+				.wrapper {
+					z-index: 1;
+					position: relative;
+				}
+			}
+			@media screen and (min-width: $breakMed) {
+				padding-top: 44px;
+				padding-bottom: 44px;
+			}
+			@media screen and (min-width: $breakLarge) {
+				padding-top: 84px;
+				padding-bottom: 84px;
+			}
+			&#features {
+				h2 {
+					padding-bottom: 24px;
+					@media screen and (min-width: $breakMed) {
+						padding-bottom: 44px;
+					}
+				}
+			}
+			&#hero {
+				height:0;
+				position: relative;
+				padding-bottom: 500px;
+				&.slideshow {
+					.slideshowBackground {
+						top:0;
+						left:0;
+						right:0;
+						bottom:0;
+						position: absolute;
+						.slide {
+							top:0;
+							left:0;
+							right:0;
+							bottom:0;
+							position: absolute;
+							background-size: cover;
+							background-position: center;
+							background-repeat: no-repeat;
+						}
+					}
+					.slideshowContent {
+						top:80px;
+						position: relative;
+						.slideshowTitle {
+							z-index: 100;
+							padding: 15px;
+							position: relative;
+							span {
+								padding-right: 2px;
+								display: inline-block;
+							}
+						}
+						& > .slide {
+							top: 0;
+							left: 0;
+							z-index: 90;
+							height: 220px;
+							max-width: 36em;
+							position: absolute;
+							padding: 45px 15px 0;
+							img {
+								width: auto;
+								height: 50px;
+								float: right;
+							}
+						}
+						.slideshowButtons {
+							height: 15px;
+							margin-top: 14em;
+							margin-bottom: 2em;
+							.dot {
+								width: 12px;
+								height: 12px;
+								cursor: pointer;
+								margin-right: 9px;
+								border-radius: 50%;
+								display: inline-block;
+								border: 2px solid white;
+							}
+						}
+					}
+					@media screen and (max-width: 430px) {
+						font-size: 90%;
+						.wrapper { width: 100%; }
+						.slideshowContent { top: 70px; }
+					}
+					@media screen and (min-width: $breakSmall) {
+						.slideshowContent {
+							.slideshowTitle { padding: 15px 0; }
+							& > .slide {
+								padding: 55px 15px 0;
+							}
+						}
+					}
+					@media screen and (min-width: $breakMed) {
+						padding-bottom: 70%;
+						.slideshowContent {
+							.slideshowTitle {
+								padding: 35px;
+								span {
+									padding-right: 7px;
+								}
+							}
+							top: 120px;
+							& > .slide {
+								height: 10em;
+								padding: 70px 35px 0;
+							}
+							.slideshowButtons {
+								margin-top: 10em;
+							}
+						}
+					}
+					@media screen and (min-width: $breakLarge) {
+						padding-bottom: 58%;
+						.slideshowContent {
+							& > .slide {
+								padding-top:80px;
+								img {
+									height: 60px;
+									left: 0.5em;
+									position: relative;
+								}
+							}
+							.slideshowButtons { margin-top: 10em; }
+						}
+					}
+					@media screen and (min-width: $breakMax) {
+						padding-bottom: 52%;
+						.slideshowContent {
+							top: 180px;
+							& > .slide {
+								height: 8em;
+								padding: 100px 90px 60px 45px;
+								img { height: 90px; left: 1em; }
+							}
+							.slideshowTitle {
+								padding: 45px;
+								span {
+									padding-right: 24px;
+								}
+							}
+							.slideshowButtons {
+								margin-top: 11em;
+								margin-bottom: 4em;
+							}
+						}
+					}
+				}
+			}
+			#more {
+				display: none;
+				@media screen and (min-width: $breakMed) {
+					width: 100%;
+					height: 40px;
+			    bottom: 80px;
+					display: block;
+					text-align: center;
+			    position: absolute;
+					svg {
+						width: 100%;
+						height: 100%;
+					}
+				}
+			}
+		}
+	}
+
+	#footerBar {
+		padding-top:24px;
+		text-align: center;
+		.bottom { small { display: block;} }
+		.runtime-io-logo {
+			width: auto;
+			height: 40px;
+			.run { fill: $secondaryColor; }
+		}
+		.navMenu {
+			li {
+				line-height: 0.9em;
+				margin-right:0.5em;
+				padding-right:0.7em;
+				border-right: 1px solid;
+				display: inline-block;
+				&:last-child {
+					border: none;
+					margin-right:0;
+					padding-right:0;
+				}
+			}
+		}
+		.contactInfo {
+			display: block;
+			margin-top: 1.6em;
+		}
+		.socialLinks {
+			display: block;
+			margin-top: 1.6em;
+			li {
+				margin-left: 1em;
+				display: inline-block;
+			}
+		}
+		@media screen and (min-width: $breakMed) {
+			padding-top: 44px;
+			text-align: left;
+			.colLeft, .colRight {
+				height: 44px;
+				position: relative;
+			}
+			.runtime-io-logo {
+				left:0;
+				bottom:0;
+				height: 100%;
+				position: absolute;
+			}
+			.navMenu {
+				right:0;
+				bottom:0;
+				height: 0.9em;
+				position: absolute;
+			}
+			.socialLinks { text-align: right; }
+		}
+		@media screen and (min-width: $breakLarge) {
+			padding-top: 64px;
+		}
+	}
+}

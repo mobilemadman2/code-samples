@@ -1,0 +1,43 @@
+body.fl-builder {
+  #child-support-app-root {
+    .child-support-app {
+      .form-row {
+        &:nth-child(2){
+          label { &:extend(.half-left); }
+          select { &:extend(.half-right); }
+        }
+        &:nth-child(3) .col-xs-6 {
+          &:extend(.wrap-label-bottom);
+          label { &:extend(.label-bottom); }
+          &:first-child {
+            &:extend(.half-left);
+            label { &:extend(.parent-1-label); }
+          }
+          &:last-child {
+            &:extend(.half-right);
+            label { &:extend(.parent-2-label); }
+          }
+        }
+        &:nth-child(4) .col-xs-8 {
+          &:extend(.slider-top);
+        }
+        &:nth-child(4) .col-xs-2 {
+          label { &:extend(.label-bottom); }
+          &:first-child {
+            &:extend(.slider-input-bottom);
+            label { &:extend(.parent-1-label); }
+          }
+          &:last-child {
+            &:extend(.slider-input-bottom-right);
+            label { &:extend(.parent-2-label); }
+          }
+        }
+        &:nth-last-child(2) {
+          margin-bottom:0;
+          padding-bottom:0;
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}

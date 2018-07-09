@@ -1,0 +1,113 @@
+/* to avoid loading ALL the vars into the calculator less files */
+@bodyfont: 'Open Sans', sans-serif;
+
+@accent-color: #49bce7; /* backgrounds and emphasis */
+@accent-color-bright: #ed922f; /* cta */
+@dark-color: #262025;
+
+@parent-1-color: #57ad45;
+@parent-2-color: #8d62b7;
+@parent-3-color: #e55e95;
+
+@row-border: 1px solid #ccc;
+
+.half-left {
+  width: 48%;
+  display: inline-block;
+  vertical-align: middle;
+}
+.half-right {
+  &:extend(.half-left);
+  margin-left:4%;
+}
+.quart-left {
+  width: 22%;
+  display: inline-block;
+  vertical-align: middle;
+}
+.quart-right {
+  &:extend(.quart-left);
+  margin-left:4%!important;
+}
+
+/* colored labels */
+.parent-1-label { color: @parent-1-color; }
+.parent-2-label { color: @parent-2-color; }
+
+/* move the label underneath the textfield */
+.wrap-label-bottom {
+  position: relative;
+  padding-bottom: 1.6em;
+}
+.label-bottom {
+  left:0;
+  bottom:0;
+  padding: 0;
+  position: absolute;
+}
+
+.slider-top {
+  width:100%;
+  position: absolute;
+  top:20px;
+  left:0;
+  padding:0;
+}
+.slider-input-bottom {
+  width:130px;
+  margin-top: 45px;
+  &:extend(.wrap-label-bottom);
+}
+.slider-input-bottom-right {
+  &:extend(.slider-input-bottom);
+  float: right;
+}
+
+/* yes|no radio pairs */
+.yes-no-label {
+  &:extend(.half-left);
+  min-width: 76%;
+}
+.wrap-yes-no {
+  &:extend(.half-right);
+  max-width: 20%;
+}
+.yes-no-radio-label {
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+}
+.yes-no {
+  padding:0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  position: relative;
+  background: white;
+  font-family: FontAwesome;
+}
+.yes-no-unchecked {
+  background: white;
+  display: block;
+  content: ' ';
+  color: #ccc;
+  top:0;
+  left:0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  position: absolute;
+  line-height: 20px;
+  border: 1px solid #ccc;
+}
+.yes-no-checked {
+  color: white;
+  border-color: @accent-color;
+  background-color: @accent-color;
+}
+.yes {
+  content: '\f00c';
+}
+.no {
+  content: '\f00d';
+}
