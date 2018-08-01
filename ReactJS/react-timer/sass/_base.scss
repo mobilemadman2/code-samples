@@ -1,0 +1,30 @@
+body {
+  color: $font-color;
+  font-family:$body-font;
+  background: $page-color;
+  font-weight: $body-weight
+}
+
+h1 {
+  width: 90%;
+  margin: 1em 0;
+  padding: 0 5%;
+  font-size: 1.4em;
+  text-align: center;
+}
+h2 {
+  font-size: 1em;
+  line-height: 1.4em;
+  font-weight: $strong-weight;
+}
+h3 {
+  width: 90%;
+  padding: 0 5%;
+  margin-bottom: 1em;
+  word-wrap: break-word;
+  text-transform: uppercase;
+}
+
+strong {
+  font-weight: $strong-weight;
+}

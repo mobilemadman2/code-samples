@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Interval Sequence Timer</title>
+  <meta name="description" content="just a simple react app">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+  <div id="root"></div>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+
+  <script type="text/babel">
+
+    class CountDown extends React.Component {
+      render() {
+        const {total, current, label, description, playState} = this.props
+        let maskClass = playState ? "count-down__mask--playing" : "count-down__mask--paused"
+        const degrees = (total===0) ? 0 : 360*(1-(current/total))
+        if (degrees >= 360) maskClass = "count-down__mask--complete";
+        let styles = []
+        let slice = 0
+        if (degrees <= 90) {
+          slice = degrees-90
+          styles = [
+            { transform: `rotate(${slice}deg)` },
+            { transform: `rotate(-90deg)` },
+            { transform: `rotate(-90deg)` },
+            { transform: `rotate(-90deg)` },
+          ]
+        } else if (degrees <= 180 ) {
+          slice = degrees-180
+          styles = [
+            { transform: `rotate(0deg)` },
+            { transform: `rotate(${slice}deg)` },
+            { transform: `rotate(-90deg)` },
+            { transform: `rotate(-90deg)` },
+          ]
+        } else if (degrees <= 270) {
+          slice = degrees-270
+          styles = [
+            { transform: `rotate(0deg)` },
+            { transform: `rotate(0deg)` },
+            { transform: `rotate(${slice}deg)` },
+            { transform: `rotate(-90deg)` },
+          ]
+        } else {
+          slice = degrees-360
+          styles = [
+            { transform: `rotate(0deg)` },
+            { transform: `rotate(0deg)` },
+            { transform: `rotate(0deg)` },
+            { transform: `rotate(${slice}deg)` },
+          ]
+        }
+        return (
+          <div className="count-down">
+            <div className={`count-down__mask ${maskClass}`}>
+              <span className="count-down__segment count-down__segment--right">
+                <span
+                  style={styles[0]}
+                  className="count-down__segment-inner count-down__segment-inner--top-right"
+                  >
+                </span>
+              </span>
+              <span className="count-down__segment count-down__segment--bottom count-down__segment--right">
+                <span
+                  style={styles[1]}
+                  className="count-down__segment-inner count-down__segment-inner--bottom-right"
+                  >
+                </span>
+              </span>
+              <span className="count-down__segment count-down__segment--bottom">
+                <span
+                  style={styles[2]}
+                  className="count-down__segment-inner count-down__segment-inner--bottom-left"
+                  >
+                </span>
+              </span>
+              <span className="count-down__segment">
+                <span
+                  style={styles[3]}
+                  className="count-down__segment-inner count-down__segment-inner--top-left"
+                  >
+                </span>
+              </span>
+            </div>
+            <span className="count-down__value">{Math.round(current)}</span>
+            <div className="count-down__title">
+              <h3>{label}</h3>
+              <p>{description}</p>
+            </div>
+          </div>
+        )
+      }
+    }
+
+    class Sequence extends React.Component {
+      itemNumber = 1;
+      state = {
+        currentInterval:0,
+        intervals: [
+          {id: `item${this.itemNumber}`, name: '', lapse: 15},
+        ],
+        loop: false,
+        audio: new Audio('assets/chime.mp3'),
+      }
+      componentDidMount() {
+        this.setupNextItem()
+      }
+      componentWillUnmount() {
+        clearInterval(this.timer)
+        clearInterval(this.pause)
+      }
+
+      playPause = () => {
+        this.setState(state => {
+          (state.running) ? clearInterval(this.timer) : this.startTimer();
+          return {running: !state.running}
+        })
+      }
+      changeItemValue = (id) => {
+        if (this.state.running) this.playPause()
+        this.setState({
+          intervals: this.state.intervals.map(
+            item => (item.id!==id) ?
+            item :
+            {
+              id: item.id,
+              name: item.name,
+              lapse: (event.target.value === '' || event.target.value < 5) ? 5 : event.target.value
+            }
+          )
+        })
+        this.setupNextItem()
+      }
+      changeItemName = (id) => {
+        this.setState({
+          intervals: this.state.intervals.map(
+            item => (item.id!==id) ?
+            item :
+            {id: item.id, lapse: item.lapse, name: event.target.value}
+          )
+        })
+        this.setupNextItem()
+      }
+      removeItem = (id) => {
+        if (this.state.running) this.playPause()
+        this.setState({
+          intervals: this.state.intervals.filter(
+            item => item.id!==id
+          )
+        })
+        if(this.state.intervals.length > 0) this.setupNextItem()
+      }
+      addItem = (id) => {
+        if (this.state.running) this.playPause()
+        this.itemNumber++
+        this.state.intervals.splice(
+          this.state.intervals.indexOf(this.state.intervals.find(item => item.id === id))+1,
+          0,
+          {id: `item${this.itemNumber}`,name: '',lapse: 15}
+        )
+        this.setupNextItem()
+      }
+
+      intervalEnd = () => {
+        clearInterval(this.timer)
+        this.state.audio.play()
+        this.pause = setInterval(() => {
+          this.setState(state => {
+            if (state.currentInterval < state.intervals.length -1) return {currentInterval: state.currentInterval+1}
+            else if (state.loop) return {currentInterval: 0}
+            else return {currentInterval: 0, running: false}
+          })
+          this.setupNextItem();
+          this.state.running ? this.startTimer() : clearInterval(this.pause)
+        }, 1000)
+      }
+      setupNextItem = () => {
+        this.setState( state => {
+          if (state.currentInterval < state.intervals.length) {
+           return {lapse: state.intervals[state.currentInterval].lapse, name: state.intervals[state.currentInterval].name}
+          }
+          else return {currentInterval:0, lapse: 0, name: ''}
+        })
+      }
+      startTimer = () => {
+        clearInterval(this.pause)
+        const endTime = Date.now() + (this.state.lapse*1000)
+        this.timer = setInterval(() => {
+          this.setState({lapse: (endTime - Date.now())/1000})
+          if (this.state.lapse < 0) this.intervalEnd()
+        })
+      }
+
+      render() {
+        const {lapse, name, intervals, running, currentInterval} = this.state
+        return (
+          <div>
+            <header>
+              <h1>Interval Sequence Timer</h1>
+            </header>
+            <div className="sequence-view">
+              <CountDown
+                label={name}
+                current={lapse}
+                playState={running}
+                total={intervals[currentInterval].lapse}
+                description={`${currentInterval+1} of ${intervals.length}`}
+              />
+              <span
+                onClick={this.playPause}
+                disabled={intervals.length < 1}
+                className="sequence-view__overlay--button"
+                >
+              </span>
+            </div>
+            <div className="sequence-controls">
+              <header className="sequence-controls__header">
+                <h2>Set your intervals here</h2>
+                <button
+                  onClick={this.addItem.bind(event, -1)}
+                  className="sequence-controls__button sequence-controls__button--add sequence-controls__button--header"
+                  >add
+                </button>
+              </header>
+              <ol className="sequence-controls__list">
+                {intervals.map( item => (
+                  <li key={item.id} className="sequence-controls__list-item">
+                    <button
+                      className="sequence-controls__button sequence-controls__button--add"
+                      onClick={this.addItem.bind(event, item.id)}
+                      >add
+                    </button>
+                    <button
+                      disabled={intervals.length < 2}
+                      className="sequence-controls__button sequence-controls__button--remove"
+                      onClick={this.removeItem.bind(event, item.id)}
+                      >remove
+                    </button>
+                    <label className="sequence-controls__label">
+                      <span className="sequence-controls__label-text">
+                        {`${item.name} | ${item.lapse}s`}
+                      </span>
+                      <input
+                        min="5"
+                        max="3600"
+                        type="number"
+                        value={item.lapse}
+                        onChange={this.changeItemValue.bind(event, item.id)}
+                        className="sequence-controls__input sequence-controls__input--small"
+                      />
+                      <input
+                        type="text"
+                        value={item.name}
+                        placeholder="Name this interval..."
+                        className="sequence-controls__input"
+                        onChange={this.changeItemName.bind(event, item.id)}
+                      />
+                    </label>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+        )
+      }
+    }
+
+    function renderApp() {
+      ReactDOM.render(
+        <Sequence />, document.getElementById('root'),
+      )
+    }
+
+    renderApp()
+
+  </script>
+</body>
+</html>

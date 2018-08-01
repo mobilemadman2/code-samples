@@ -1,0 +1,34 @@
+$padding: 16px;
+$baseline: 1.44em;
+
+$body-font: 'Lato', sans-serif;
+$body-weight: 300;
+$strong-weight: 600;
+$em-style: italic;
+
+$page-color: #eee;
+$font-color: #333;
+$accent-color: #876db7;
+$light-color: #ccc;
+$mid-color: #999;
+
+$max-line-length: 30em;
+
+$paragraph-margin: 0 0 $baseline;
+
+$xs-width: 400px;
+$sm-width: 620px;
+$tablet-width: 768px;
+$med-width: 960px;
+$lrg-width: 1140px;
+$max-width: 1360px;
+$ultra-width: 1600px;
+
+$default-font-size: 1em;
+$small-font-size: 0.8em;
+$large-font-size: 1.44em;
+
+$line-height: percentage($baseline/$default-font-size);
+
+$box-shadow: 0 0 1px $light-color;
+$border: 1px solid $light-color;

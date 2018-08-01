@@ -1,0 +1,17 @@
+.sequence-view {
+  width: 80%;
+  max-width: 300px;
+  margin: 20px auto;
+  position: relative;
+}
+.sequence-view__overlay--button {
+  top:0;
+  left:0;
+  height:0;
+  width: 100%;
+  display: block;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  padding-bottom: 100%;
+}

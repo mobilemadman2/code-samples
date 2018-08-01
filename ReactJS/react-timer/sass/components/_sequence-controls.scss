@@ -1,0 +1,116 @@
+.sequence-controls {
+  left:0;
+  bottom: 0;
+  width: 100%;
+  color: #000;
+  height: 40px;
+  position: fixed;
+  background: $light-color;
+  @include transition(height 0.5s);
+  &:hover {
+    height: 300px;
+  }
+}
+
+.sequence-controls__title {
+  width: 80%;
+  margin-left: 0;
+}
+
+.sequence-controls__list {
+  margin: 0 25px;
+}
+
+.sequence-controls__list-item {
+  height: 28px;
+  position: relative;
+  line-height: 28px;
+  margin-bottom: 7px;
+  vertical-align: middle;
+  list-style-type: decimal;
+  list-style-position: outside;
+}
+
+.sequence-controls__label {
+  width: 100%;
+}
+
+.sequence-controls__label-text {
+  opacity:1;
+  height: 1.4em;
+  max-width: 180px;
+  overflow: hidden;
+  margin-left: 10px;
+  line-height: 1.4em;
+  display: inline-block;
+  vertical-align: middle;
+  @include transition(opacity 0.1s);
+  .sequence-controls__label:hover & {
+    opacity:0;
+  }
+}
+
+.sequence-controls__input {
+  top:2px;
+  left:60px;
+  opacity: 0;
+  height: 20px;
+  max-width: 20em;
+  padding: 2px 5px;
+  margin-left: 4.5em;
+  position: absolute;
+  box-shadow: 0 0 0 0;
+  border: 1px solid $light-color;
+  @include transition(opacity 0.1s);
+
+  &:focus, &:active {
+    outline: $accent-color auto 5px;
+  }
+  .sequence-controls__label:hover &, &:focus {
+    opacity:1;
+  }
+}
+.sequence-controls__input--small {
+  width: 3em;
+  margin-left: 0;
+}
+.sequence-controls__header {
+  position: relative;
+  padding: 10px 10px 10px 40px;
+}
+.sequence-controls__button {
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  cursor: pointer;
+  background: #fff;
+  border-radius: 0;
+  overflow: hidden;
+  margin-left: 5px;
+  text-indent: 24px;
+  box-shadow: 0 0 0 0;
+  background-size: 80% 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid $light-color;
+  &[disabled] {
+    cursor: auto;
+    opacity: 0.7;
+  }
+
+  &.sequence-controls__button--header {
+    top: 10px;
+    left: 10px;
+    margin-left: 0;
+    position: absolute;
+  }
+  &.sequence-controls__button--add {
+    background-image: url(assets/add.svg);
+  }
+  &.sequence-controls__button--remove {
+    background-image: url(assets/remove.svg);
+  }
+  &:focus, &:active {
+    outline: $accent-color auto 5px;
+  }
+}

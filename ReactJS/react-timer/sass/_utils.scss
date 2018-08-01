@@ -1,0 +1,18 @@
+@mixin transform ($props) {
+  -webkit-transform: $props;
+  -moz-transform: $props;
+  -ms-transform: $props;
+  transform: $props;
+}
+@mixin transform-origin ($props) {
+  -webkit-transform-origin: $props;
+  -moz-transform-origin: $props;
+  -ms-transform-origin: $props;
+  transform-origin: $props;
+}
+@mixin transition ($props) {
+  -webkit-transition: $props;
+  -moz-transition: $props;
+  -ms-transition: $props;
+  transition: $props;
+}
