@@ -1,0 +1,839 @@
+/* MAIN STRUCTURE */
+html { width: 100%; height: 100%; }
+
+body { background-color: #fff; width: 100%; min-width: 400px; height: 100%; padding: 0; margin: 0; }
+
+footer, body > p { margin: 0 2em; text-align: center; font-family: 'proxima-nova', Helvetica, Arial, sans-serif; }
+
+footer a:link, body > p a:link, footer a:visited, body > p a:visited { color: #008ABB; text-decoration: none; }
+
+footer a:hover, body > p a:hover, footer a:active, body > p a:active { color: #142f70; text-decoration: underline; }
+
+#container { height: 100%; width: 100%; }
+
+@media screen and (min-height: 780px) {
+  #container { height: 90vh; margin: 5vh 0; }
+}
+/* END MAIN STRUCTURE */
+
+
+#leafContainer { opacity: 0; }
+
+/* FALLBACK for lack of feature support */
+#upgradeContainer { display: none; }
+#upgradeContainer img { max-width: 100%; }
+.no-blobconstructor #upgradeContainer {
+  position: absolute;
+  top: 12px;
+  left: 10%;
+  width: 80%;
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+/* end fallback */
+
+.blobconstructor #leafContainer { opacity: 1; }
+
+/* SCENE */
+#leafContainer {
+  margin: auto;
+  height: 880px;
+  width: 880px;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  position: relative;
+  background-color: #f9f2e3;
+}
+#leafContainer .tree {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  position: absolute;
+}
+
+#leafContainer #background { z-index: 200; }
+#leafContainer #foreground { z-index: 700; }
+/* TREES */
+#leafContainer img:nth-child(1) { z-index: 111; }
+#leafContainer img:nth-child(4) { z-index: 888; }
+#leafContainer img:nth-child(2) { z-index: 222; }
+#leafContainer img:nth-child(3) { z-index: 999; }
+/* END TREES */
+/* END SCENE */
+
+/* TURKEY
+* - The turkey within the scene with responsive adjustments
+*/
+#leafContainer #turkeyContainer {
+  z-index: 555;
+  position: absolute;
+  bottom: 15%;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+#leafContainer #turkeyContainer .wrapper {
+  top: 60px;
+  height: 0;
+  width: 296px;
+  margin: auto;
+  z-index: 560;
+  position: relative;
+  padding-bottom: 296px;
+  -ms-transform: scale(0.5, 0.5);
+  -moz-transform: scale(0.5, 0.5);
+  -webkit-transform: scale(0.5, 0.5);
+  transform: scale(0.5, 0.5);
+}
+@media screen and (min-width: 500px) and (min-height: 400px) {
+  #leafContainer #turkeyContainer .wrapper {
+    top: 30px;
+    -ms-transform: scale(0.7, 0.7);
+    -moz-transform: scale(0.7, 0.7);
+    -webkit-transform: scale(0.7, 0.7);
+    transform: scale(0.7, 0.7);
+  }
+}
+@media screen and (min-width: 780px) and (min-height: 620px) {
+  #leafContainer #turkeyContainer {
+    left: 31%;
+    right: 31%;
+    width: 38%;
+  }
+  #leafContainer #turkeyContainer .wrapper {
+    top: 0;
+    height: 0;
+    width: 100%;
+    padding-bottom: 100%;
+    -ms-transform: scale(1, 1);
+    -moz-transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+}
+/* END TURKEY */
+
+#leafContainer #turkeyContainer #turkey {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 558;
+  position: absolute;
+}
+
+#leafContainer #turkeyContainer #feathers .feather-container,
+#leafContainer #turkeyContainer #logos .logo-container,
+#leafContainer #turkeyContainer #hearts .heart-container {
+  position: absolute;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+  -webkit-transition-delay: 5s;
+  transition-delay: 5s;
+
+  -ms-transform-origin: 0 0;
+  -moz-transform-origin: 0 0;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+
+  -webkit-animation-iteration-count: 2;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-timing-function: ease-in-out;
+}
+#leafContainer #turkeyContainer #logos, #leafContainer #turkeyContainer #hearts {
+  top: auto;
+  left: 50%;
+  width: 50%;
+  height: 50%;
+  bottom: 50%;
+  z-index: 500;
+  position: absolute;
+}
+#leafContainer #turkeyContainer #feathers .feather-container {
+  width: auto;
+  height: auto;
+}
+#leafSvg, #logoSvg, #heartSvg {
+  position: absolute;
+  visibility: hidden;
+}
+
+#leafContainer #turkeyContainer #logos .logo-container {
+  width: 44%;
+  height: 44%;
+  left: -22%;
+  bottom: 0;
+}
+#leafContainer #turkeyContainer #hearts .heart-container {
+  width: 24%;
+  height: 24%;
+  left: -12%;
+  bottom: 0;
+}
+
+#leafContainer #turkeyContainer #feathers.drop .feather-container {
+  bottom: -230%!important;
+}
+
+#leafContainer #turkeyContainer #logos .logo, #leafContainer #turkeyContainer #hearts .heart  {
+  width: 100%; height: auto;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+  -webkit-transition-delay: 5s;
+  transition-delay: 5s;
+
+  -ms-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+
+  -webkit-animation-iteration-count: 2;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+/* logos on explode and on drop */
+#leafContainer #turkeyContainer.explode #logos .logo-container:nth-child(1) {
+  left: -150%;
+  bottom: 150%;
+}
+#leafContainer #turkeyContainer.explode #logos .logo-container:nth-child(1) .logo {
+  -ms-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+#leafContainer #turkeyContainer #logos.drop .logo-container:nth-child(1) {
+  bottom: -170%;
+  -webkit-transition: bottom 3.5s;
+  transition: bottom 3.5s;
+  -webkit-transition-delay: 0.5s;
+  transition-delay: 0.5s;
+}
+#leafContainer #turkeyContainer.explode #logos .logo-container:nth-child(2) {
+  left: -30%;
+  bottom: 200%;
+}
+#leafContainer #turkeyContainer.explode #logos .logo-container:nth-child(2) .logo {
+  -ms-transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+#leafContainer #turkeyContainer #logos.drop .logo-container:nth-child(2) {
+  bottom: -185%;
+  -webkit-transition: bottom 3.3s;
+  transition: bottom 3.3s;
+  -webkit-transition-delay: 1s;
+  transition-delay: 1s;
+}
+#leafContainer #turkeyContainer.explode #logos .logo-container:nth-child(3) {
+  left: 100%;
+  bottom: 120%;
+}
+#leafContainer #turkeyContainer.explode #logos .logo-container:nth-child(3) .logo {
+  -ms-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+#leafContainer #turkeyContainer #logos.drop .logo-container:nth-child(3) {
+  bottom: -190%;
+  -webkit-transition: bottom 4s;
+  transition: bottom 4s;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+
+/* hearts on explode and on drop */
+#leafContainer #turkeyContainer.explode #hearts .heart-container:nth-child(1) {
+  left: 130%;
+  bottom: 20%;
+}
+#leafContainer #turkeyContainer.explode #hearts .heart-container:nth-child(1) .heart {
+  -ms-transform: rotate(60deg);
+  -moz-transform: rotate(60deg);
+  -webkit-transform: rotate(60deg);
+  transform: rotate(60deg);
+}
+#leafContainer #turkeyContainer #hearts.drop .heart-container:nth-child(1) {
+  bottom: -160%;
+  -webkit-transition: bottom 3.5s;
+  transition: bottom 3.5s;
+  -webkit-transition-delay: 0.5s;
+  transition-delay: 0.5s;
+}
+#leafContainer #turkeyContainer.explode #hearts .heart-container:nth-child(2) {
+  left: -130%;
+  bottom: 50%;
+}
+#leafContainer #turkeyContainer #hearts.explode .heart-container:nth-child(2) .heart {
+  -ms-transform: rotate(-40deg);
+  -webkit-transform: rotate(-40deg);
+  -moz-transform: rotate(-40deg);
+  transform: rotate(-40deg);
+}
+#leafContainer #turkeyContainer #hearts.drop .heart-container:nth-child(2) {
+  bottom: -170%;
+  -webkit-transition: bottom 4s;
+  transition: bottom 4s;
+  -webkit-transition-delay: 1s;
+  transition-delay: 1s;
+}
+#leafContainer #turkeyContainer.explode #hearts .heart-container:nth-child(3) {
+  left: 0;
+  bottom: 130%;
+}
+#leafContainer #turkeyContainer.explode #hearts .heart-container:nth-child(3) .heart {
+  -ms-transform: rotate(20deg);
+  -webkit-transform: rotate(20deg);
+  -moz-transform: rotate(20deg);
+  transform: rotate(20deg);
+}
+#leafContainer #turkeyContainer #hearts.drop .heart-container:nth-child(3) {
+  bottom: -190%;
+  -webkit-transition: bottom 4s;
+  transition: bottom 4s;
+  -webkit-transition-delay: 1.5s;
+  transition-delay: 1.5s;
+}
+
+/* FEATHERS */
+#leafContainer #turkeyContainer #feathers {
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 50%;
+  z-index: 557;
+  position: absolute;
+}
+#leafContainer #turkeyContainer #feathers .feather {
+  top: 0;
+  position: relative;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+  -webkit-transition-delay: 5s;
+  transition-delay: 5s;
+
+  -ms-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-timing-function: ease-in-out;
+}
+#leafContainer #turkeyContainer #feathers.drop .feather-container .feather {
+  -webkit-animation-iteration-count: 2;
+}
+
+/* ONE */
+#leafContainer #turkeyContainer .feather-container:nth-child(1) {
+  bottom: -70%;
+  left: -85%;
+  -ms-transform: scale(-1, 1);
+  -moz-transform: scale(-1, 1);
+  -webkit-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+#leafContainer #turkeyContainer .feather-container:nth-child(1) .feather {
+  -ms-transform: rotate(100deg);
+  -moz-transform: rotate(100deg);
+  -webkit-transform: rotate(100deg);
+  transform: rotate(100deg);
+}
+#leafContainer #turkeyContainer.explode #feathers .feather-container:nth-child(1) {
+  left: -220%;
+  bottom: -50%;
+}
+#leafContainer #turkeyContainer.explode #feathers .feather-container:nth-child(1) .feather {
+  -ms-transform: rotate(120deg);
+  -moz-transform: rotate(120deg);
+  -webkit-transform: rotate(120deg);
+  transform: rotate(120deg);
+}
+#leafContainer #turkeyContainer #feathers.drop .feather-container:nth-child(1) {
+  -webkit-transition: bottom 3.5s;
+  transition: bottom 3.5s;
+  -webkit-transition-delay: 0.5s;
+  transition-delay: 0.5s;
+}
+/* TWO */
+#leafContainer #turkeyContainer .feather-container:nth-child(2) {
+  bottom: -93%;
+  left: -80%;
+  -ms-transform: scale(-1, 1);
+  -moz-transform: scale(-1, 1);
+  -webkit-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+#leafContainer #turkeyContainer .feather-container:nth-child(2) .feather {
+  -ms-transform: rotate(120deg);
+  -moz-transform: rotate(120deg);
+  -webkit-transform: rotate(120deg);
+  transform: rotate(120deg);
+}
+#leafContainer #turkeyContainer.explode #feathers .feather-container:nth-child(2) {
+  left: -140%;
+  bottom: -160%;
+}
+#leafContainer #turkeyContainer.explode #feathers .feather-container:nth-child(2) .feather {
+  -ms-transform: rotate(-30deg);
+  -moz-transform: rotate(-30deg);
+  -webkit-transform: rotate(-30deg);
+  transform: rotate(-30deg);
+}
+#leafContainer #turkeyContainer #feathers.drop .feather-container:nth-child(2) {
+  -webkit-transition: bottom 3.5s;
+  transition: bottom 3.5s;
+  -webkit-transition-delay: 0.7s;
+  transition-delay: 0.7s;
+}
+/* THREE */
+#leafContainer #turkeyContainer .feather-container:nth-child(3) {
+  bottom: -53%;
+  left: -90%;
+  -ms-transform: scale(-1, 1);
+  -moz-transform: scale(-1, 1);
+  -webkit-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+#leafContainer #turkeyContainer .feather-container:nth-child(3) .feather {
+  -ms-transform: rotate(75deg);
+  -moz-transform: rotate(75deg);
+  -webkit-transform: rotate(75deg);
+  transform: rotate(75deg);
+}
+#leafContainer #turkeyContainer.explode #feathers .feather-container:nth-child(3) {
+  left: -170%;
+  bottom: 130%;
+}
+#leafContainer #turkeyContainer.explode #feathers .feather-container:nth-child(3) .feather {
+  -ms-transform: rotate(60deg);
+  -moz-transform: rotate(60deg);
+  -webkit-transform: rotate(60deg);
+  transform: rotate(60deg);
+}
+#leafContainer #turkeyContainer #feathers.drop .feather-container:nth-child(3) {
+  -webkit-transition: all 5.4s;
+  transition: all 5.4s;
+  -webkit-transition-delay: 0.5s;
+  transition-delay: 0.5s;
+}
+/* FOUR */
+#leafContainer #turkeyContainer .feather-container:nth-child(4) {
+  bottom: -75%;
+  left: 85%;
+}
+#leafContainer #turkeyContainer .feather-container:nth-child(4) .feather {
+  -ms-transform: rotate(100deg);
+  -moz-transform: rotate(100deg);
+  -webkit-transform: rotate(100deg);
+  transform: rotate(100deg);
+}
+#leafContainer #turkeyContainer.explode #feathers .feather-container:nth-child(4) {
+  left: 180%;
+  bottom: -50%;
+}
+#leafContainer #turkeyContainer.explode #feathers .feather-container:nth-child(4) .feather {
+  -ms-transform: rotate(-30deg);
+  -moz-transform: rotate(-30deg);
+  -webkit-transform: rotate(-30deg);
+  transform: rotate(-30deg);
+}
+#leafContainer #turkeyContainer #feathers.drop .feather-container:nth-child(4) {
+  -webkit-transition: bottom 2.5s;
+  transition: bottom 2.5s;
+  -webkit-transition-delay: 1s;
+  transition-delay: 1s;
+}
+/* FIVE */
+#leafContainer #turkeyContainer .feather-container:nth-child(5) {
+  bottom: -95%;
+  left: 80%;
+}
+#leafContainer #turkeyContainer .feather-container:nth-child(5) .feather {
+  -ms-transform: rotate(120deg);
+  -moz-transform: rotate(120deg);
+  -webkit-transform: rotate(120deg);
+  transform: rotate(120deg);
+}
+#leafContainer #turkeyContainer.explode #feathers .feather-container:nth-child(5) {
+  left: 140%;
+  bottom: -160%;
+}
+#leafContainer #turkeyContainer.explode #feathers .feather-container:nth-child(5) .feather {
+  -ms-transform: rotate(60deg);
+  -moz-transform: rotate(60deg);
+  -webkit-transform: rotate(60deg);
+  transform: rotate(60deg);
+}
+#leafContainer #turkeyContainer #feathers.drop .feather-container:nth-child(5) {
+  -webkit-transition: bottom 1.5s;
+  transition: bottom 1.5s;
+  -webkit-transition-delay: 0.7s;
+  transition-delay: 0.7s;
+}
+/* SIX */
+#leafContainer #turkeyContainer .feather-container:nth-child(6) {
+  bottom: -49%;
+  left: 75%;
+}
+#leafContainer #turkeyContainer .feather-container:nth-child(6) .feather {
+  -ms-transform: rotate(75deg);
+  -moz-transform: rotate(75deg);
+  -webkit-transform: rotate(75deg);
+  transform: rotate(75deg);
+}
+#leafContainer #turkeyContainer.explode #feathers .feather-container:nth-child(6) {
+  left: 130%;
+  bottom: 130%;
+}
+#leafContainer #turkeyContainer.explode #feathers .feather-container:nth-child(6) .feather {
+  -ms-transform: rotate(120deg);
+  -moz-transform: rotate(120deg);
+  -webkit-transform: rotate(120deg);
+  transform: rotate(120deg);
+}
+#leafContainer #turkeyContainer #feathers.drop .feather-container:nth-child(6) {
+  -webkit-transition: all 5.4s;
+  transition: all 5.4s;
+  -webkit-transition-delay: 0.5s;
+  transition-delay: 0.5s;
+}
+/* SEVEN */
+#leafContainer #turkeyContainer .feather-container:nth-child(7) {
+  bottom: 35%;
+  left: -10%;
+}
+#leafContainer #turkeyContainer .feather-container:nth-child(7) .feather {
+  -ms-transform: rotate(24deg);
+  -moz-transform: rotate(24deg);
+  -webkit-transform: rotate(24deg);
+  transform: rotate(24deg);
+}
+#leafContainer #turkeyContainer.explode #feathers .feather-container:nth-child(7) {
+  bottom: 200%;
+  left: 100%;
+}
+#leafContainer #turkeyContainer.explode #feathers .feather-container:nth-child(7) .feather {
+  -ms-transform: rotate(-30deg);
+  -moz-transform: rotate(-30deg);
+  -webkit-transform: rotate(-30deg);
+  transform: rotate(-30deg);
+}
+#leafContainer #turkeyContainer #feathers.drop .feather-container:nth-child(7) {
+  -webkit-transition: all 8.4s;
+  transition: all 8.4s;
+  -webkit-transition-delay: 1s;
+  transition-delay: 1s;
+}
+/* EIGHT */
+#leafContainer #turkeyContainer .feather-container:nth-child(8) {
+  bottom: 40%;
+  left: -35%;
+}
+#leafContainer #turkeyContainer .feather-container:nth-child(8) .feather {
+  -ms-transform: rotate(-5deg);
+  -moz-transform: rotate(-5deg);
+  -webkit-transform: rotate(-5deg);
+  transform: rotate(-5deg);
+}
+#leafContainer #turkeyContainer.explode #feathers .feather-container:nth-child(8) {
+  bottom: 250%;
+  left: 0;
+}
+#leafContainer #turkeyContainer.explode #feathers .feather-container:nth-child(8) .feather {
+  -ms-transform: rotate(60deg);
+  -moz-transform: rotate(60deg);
+  -webkit-transform: rotate(60deg);
+  transform: rotate(60deg);
+}
+#leafContainer #turkeyContainer #feathers.drop .feather-container:nth-child(8) {
+  -webkit-transition: all 7.4s;
+  transition: all 7.4s;
+  -webkit-transition-delay: 1s;
+  transition-delay: 1s;
+}
+/* NINE */
+#leafContainer #turkeyContainer .feather-container:nth-child(9) {
+  bottom: 30%;
+  left: -55%;
+}
+#leafContainer #turkeyContainer .feather-container:nth-child(9) .feather {
+  -ms-transform: rotate(-36deg);
+  -moz-transform: rotate(-35deg);
+  -webkit-transform: rotate(-35deg);
+  transform: rotate(-35deg);
+}
+#leafContainer #turkeyContainer.explode #feathers .feather-container:nth-child(9) {
+  bottom: 200%;
+  left: -100%;
+}
+#leafContainer #turkeyContainer.explode #feathers .feather-container:nth-child(9) .feather {
+  -ms-transform: rotate(120deg);
+  -moz-transform: rotate(120deg);
+  -webkit-transform: rotate(120deg);
+  transform: rotate(120deg);
+}
+#leafContainer #turkeyContainer #feathers.drop .feather-container:nth-child(9) {
+  -webkit-transition: all 8.4s;
+  transition: all 8.4s;
+  -webkit-transition-delay: 2s;
+  transition-delay: 2s;
+}
+/* TEN */
+#leafContainer #turkeyContainer .feather-container:nth-child(10) {
+  bottom: -20%;
+  left: -65%;
+  -ms-transform: scale(-1, 1);
+  -moz-transform: scale(-1, 1);
+  -webkit-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+#leafContainer #turkeyContainer .feather-container:nth-child(10) .feather {
+  -ms-transform: rotate(60deg);
+  -moz-transform: rotate(60deg);
+  -webkit-transform: rotate(60deg);
+  transform: rotate(60deg);
+}
+#leafContainer #turkeyContainer.explode #feathers .feather-container:nth-child(10) {
+  left: -220%;
+  bottom: 150%;
+}
+#leafContainer #turkeyContainer.explode #feathers .feather-container:nth-child(10) .feather {
+  -ms-transform: rotate(120deg);
+  -moz-transform: rotate(120deg);
+  -webkit-transform: rotate(120deg);
+  transform: rotate(120deg);
+}
+#leafContainer #turkeyContainer #feathers.drop .feather-container:nth-child(10) {
+  -webkit-transition: bottom 3.5s;
+  transition: bottom 3.5s;
+  -webkit-transition-delay: 1.5s;
+  transition-delay: 1.5s;
+}
+/* ELEVEN */
+#leafContainer #turkeyContainer .feather-container:nth-child(11) {
+  bottom: 5%;
+  left: -35%;
+  -ms-transform: scale(-1, 1);
+  -moz-transform: scale(-1, 1);
+  -webkit-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+#leafContainer #turkeyContainer .feather-container:nth-child(11) .feather {
+  -ms-transform: rotate(40deg);
+  -moz-transform: rotate(40deg);
+  -webkit-transform: rotate(40deg);
+  transform: rotate(40deg);
+}
+#leafContainer #turkeyContainer.explode #feathers .feather-container:nth-child(11) {
+  left: -60%;
+  bottom: 50%;
+}
+#leafContainer #turkeyContainer.explode #feathers .feather-container:nth-child(11) .feather {
+  -ms-transform: rotate(60deg);
+  -moz-transform: rotate(60deg);
+  -webkit-transform: rotate(60deg);
+  transform: rotate(60deg);
+}
+#leafContainer #turkeyContainer #feathers.drop .feather-container:nth-child(11) {
+  -webkit-transition: bottom 3.5s;
+  transition: bottom 3.5s;
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+}
+/* TWELVE */
+#leafContainer #turkeyContainer .feather-container:nth-child(12) {
+  bottom: -20%;
+  left: 65%;
+}
+#leafContainer #turkeyContainer .feather-container:nth-child(12) .feather {
+  -ms-transform: rotate(60deg);
+  -moz-transform: rotate(60deg);
+  -webkit-transform: rotate(60deg);
+  transform: rotate(60deg);
+}
+#leafContainer #turkeyContainer.explode #feathers .feather-container:nth-child(12) {
+  left: 60%;
+  bottom: 120%;
+}
+#leafContainer #turkeyContainer.explode #feathers .feather-container:nth-child(12) .feather {
+  -ms-transform: rotate(120deg);
+  -moz-transform: rotate(120deg);
+  -webkit-transform: rotate(120deg);
+  transform: rotate(120deg);
+}
+#leafContainer #turkeyContainer #feathers.drop .feather-container:nth-child(12) {
+  -webkit-transition: bottom 4s;
+  transition: bottom 4s;
+  -webkit-transition-delay: 1s;
+  transition-delay: 1s;
+}
+/* THIRTEEN */
+#leafContainer #turkeyContainer .feather-container:nth-child(13) {
+  bottom: 5%;
+  left: 35%;
+}
+#leafContainer #turkeyContainer .feather-container:nth-child(13) .feather {
+  -ms-transform: rotate(40deg);
+  -moz-transform: rotate(40deg);
+  -webkit-transform: rotate(40deg);
+  transform: rotate(40deg);
+}
+#leafContainer #turkeyContainer.explode #feathers .feather-container:nth-child(13) {
+  left: 30%;
+  bottom: 250%;
+}
+#leafContainer #turkeyContainer.explode #feathers .feather-container:nth-child(13) .feather {
+  -ms-transform: rotate(60deg);
+  -moz-transform: rotate(60deg);
+  -webkit-transform: rotate(60deg);
+  transform: rotate(60deg);
+}
+#leafContainer #turkeyContainer #feathers.drop .feather-container:nth-child(13) {
+  -webkit-transition: bottom 6.5s;
+  transition: bottom 6.5s;
+  -webkit-transition-delay: 0.5s;
+  transition-delay: 0.5s;
+}
+/* END FEATHERS */
+
+/* turkey shadow */
+#leafContainer #turkeyContainer:before {
+  bottom: 0;
+  left: 0%;
+  height: 15%;
+  width: 100%;
+  content: ' ';
+  z-index: 550;
+  display: block;
+  position: absolute;
+  background: -webkit-radial-gradient(#a09c72, rgba(255,255,255,0), rgba(255,255,255,0) ); /* Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(#a09c72, rgba(255,255,255,0), rgba(255,255,255,0) ); /* For Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(#a09c72, rgba(255,255,255,0), rgba(255,255,255,0) ); /* For Firefox 3.6 to 15 */
+  background: radial-gradient(#a09c72, rgba(255,255,255,0), rgba(255,255,255,0) ); /* Standard syntax (must be last) */
+}
+
+#leafContainer svg#love {
+  left: 0;
+  bottom: 5%;
+  width: 100%;
+  height: 54px;
+  z-index: 700;
+  max-height: 10%;
+  position: absolute;
+}
+
+/* LEAVES */
+#leafContainer > span {
+    position: absolute;
+    min-width: 10px;
+    display: block;
+    height: 100%;
+
+    -webkit-animation-iteration-count: infinite, infinite;
+    -webkit-animation-direction: normal, normal;
+    -webkit-animation-timing-function: linear, ease-in;
+}
+
+#leafContainer span#l1 { -webkit-animation-iteration-count: 1; }
+#leafContainer span#l2 { -webkit-animation-iteration-count: 1; }
+#leafContainer span#l3 { -webkit-animation-iteration-count: 1; }
+#leafContainer span#l4 { -webkit-animation-iteration-count: 1; }
+#leafContainer span#l5 { -webkit-animation-iteration-count: 1; }
+
+#leafContainer > span > .image {
+     position: absolute;
+     width: 100%;
+     height: auto;
+
+     -webkit-animation-iteration-count: infinite;
+     -webkit-animation-direction: alternate;
+     -webkit-animation-timing-function: ease-in-out;
+     -ms-transform-origin: 50% -100%;
+     -moz-transform-origin: 50% -100%;
+     -webkit-transform-origin: 50% -100%;
+     transform-origin: 50% -100%;
+}
+
+span:nth-child(4n+1) .image svg .body { fill: #de9127; }
+span:nth-child(4n+2) .image svg .body { fill: #f3d567; }
+span:nth-child(4n+3) .image svg .body { fill: #d8a877; }
+/* END LEVES */
+
+/* KEYFRAME ANIMATIONS */
+@-webkit-keyframes fade {
+    0%   { opacity: 1; }
+    97%  { opacity: 1; }
+    100% { opacity: 0; }
+}
+@-webkit-keyframes drop {
+    0%   { -webkit-transform: translate(0px, -10%); }
+    100% { -webkit-transform: translate(0px, 100%); }
+}
+@-webkit-keyframes drop-1 {
+    0%   { -webkit-transform: translate(0px, 5%); }
+    100% { -webkit-transform: translate(0px, 100%); }
+}
+@-webkit-keyframes drop-2 {
+    0%   { -webkit-transform: translate(0px, 0%); }
+    100% { -webkit-transform: translate(0px, 100%); }
+}
+@-webkit-keyframes drop-3 {
+    0%   { -webkit-transform: translate(0px, 0%); }
+    100% { -webkit-transform: translate(0px, 100%); }
+}
+@-webkit-keyframes drop-4 {
+    0%   { -webkit-transform: translate(0px, 0%); }
+    100% { -webkit-transform: translate(0px, 100%); }
+}
+@-webkit-keyframes drop-5 {
+    0%   { -webkit-transform: translate(0px, 0%); }
+    100% { -webkit-transform: translate(0px, 100%); }
+}
+@-webkit-keyframes clockwiseSpin {
+    0%   { -webkit-transform: rotate(-70deg); }
+    100% { -webkit-transform: rotate(70deg); }
+}
+@-webkit-keyframes logo-1-spin {
+    0%   { -webkit-transform: rotate(90deg); }
+    100% { -webkit-transform: rotate(0deg); }
+}
+@-webkit-keyframes logo-2-spin {
+  0%   { -webkit-transform: rotate(-90deg); }
+  100% { -webkit-transform: rotate(0deg); }
+}
+@-webkit-keyframes logo-3-spin {
+    0%   { -webkit-transform: rotate(180deg); }
+    100% { -webkit-transform: rotate(270deg); }
+}
+@-webkit-keyframes feather-1-spin {
+    0%   { -webkit-transform: rotate(120deg); }
+    100% { -webkit-transform: rotate(60deg); }
+}
+@-webkit-keyframes feather-2-spin {
+    0%   { -webkit-transform: rotate(-30deg); }
+    100% { -webkit-transform: rotate(-70deg); }
+}
+@-webkit-keyframes feather-3-spin {
+    0%   { -webkit-transform: rotate(60deg); }
+    100% { -webkit-transform: rotate(120deg); }
+}
+@-webkit-keyframes feather-1-twerk {
+    0%   { -webkit-transform: rotate(140deg); }
+    100% { -webkit-transform: rotate(120deg); }
+}
+@-webkit-keyframes clockwiseSpinAndFlip {
+    0%   { -webkit-transform: scale(-1, 1) rotate(-70deg); }
+    100% { -webkit-transform: scale(-1, 1) rotate(70deg); }
+}
+@-webkit-keyframes counterclockwiseSpinAndFlip {
+  0%   { -webkit-transform: scale(-1, 1) rotate(70deg); }
+  100% { -webkit-transform: scale(-1, 1) rotate(-70deg); }
+}
