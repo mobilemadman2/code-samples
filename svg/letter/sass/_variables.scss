@@ -1,0 +1,56 @@
+$default-font-size: 16px;
+$baseline:26px;
+$gutter: 15px;
+$gutter-adj: $gutter - 2;
+$vertical-spacing: $baseline;
+$paragraph-margin: $baseline / 2 0;
+$bar-height: 33px;
+$bar-padding-top: 6px;
+$bar-padding-bottom: 6px;
+$bar-padding: $bar-padding-top 0 $bar-padding-bottom;
+$bar-height-total: $bar-height + $bar-padding-top + $bar-padding-bottom;
+
+
+$body-color: #21262e;
+
+$accent-high-dark: #5e3561;
+$accent-high: #8c6493;
+$accent-soft: #c4bdcf;
+$accent-alt: #394753;
+$accent-dark: #34253e;
+$white: #fff;
+$black: #000;
+$twitter-blue: #55acee;
+$error: #e57713;
+
+$box-shadow: 0 0 1px #bbb;
+$icon-link-padding: 8px $gutter * 0.4;
+$icon-link-margin: 0 2px;
+$article-border: 1px solid $accent-soft;
+
+$body-font: 'Lato', sans-serif;
+$display-font: 'Josefin Sans', sans-serif;
+$font-weight: 300;
+$display-weight: 300;
+$strong-weight: 400;
+$strong-display-weight: 400;
+$em-style: italic;
+
+$background-color: #fff;
+$background-color-alt: $accent-alt;
+
+$img-link-opacity: 0.9;
+
+$max-line-length: 730px;
+
+$small-size: 80%;
+
+$xs-width: 460px;
+$sm-width: 620px;
+
+$tablet-width: 768px;
+$med-width: 960px;
+
+$lrg-width: 1040px;
+$max-width: 1200px;
+$ultra-width: 1500px;

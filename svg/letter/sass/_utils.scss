@@ -1,0 +1,155 @@
+/* mixins */
+@mixin fluid-width($cols) {
+    width: percentage(1/12*$cols);
+}
+
+@mixin fluid-offset($cols) {
+    padding-left: percentage(1/12*$cols);
+    overflow:hidden;
+    width: 100%;
+    position: relative;
+}
+
+@mixin fluid-offset-right($cols) {
+    padding-right: percentage(1/12*$cols);
+    overflow:hidden;
+    width: 100%;
+    position: relative;
+    right: percentage(1/12*$cols);
+}
+
+@mixin transition($args) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+@mixin border-box {
+    box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   -ms-box-sizing: border-box;
+}
+
+@mixin image-height($width, $bottom) {
+  height: $width / 12 * 8 + $bottom;
+}
+
+@mixin image-height-sq($width, $bottom) {
+  height: ($width * 0.5) + $bottom;
+}
+
+%wrapper-full { overflow:hidden; width:100%; position: relative;}
+%wrapper-fixed { max-width:$max-width; margin-left: auto; margin-right: auto; }
+
+%main-background { background-color: $background-color; color:$body-color; }
+%alt-background { background-color: $background-color-alt; color: $white; a { color: $white; } }
+
+%accent-background { background-color: $accent-high; color: $white; a { color: $white!important; } }
+%soft-background { background-color: $accent-soft; color:$body-color; }
+
+%paragraph-margin {
+  margin: 0 0 9px;
+  @media only screen and (min-width : $tablet-width)  { margin: 13px 0; }
+}
+
+%text-center {
+  text-align: center;
+  display: block!important;
+}
+
+%mobile-text {
+  font-size:90%;
+  @media only screen and (min-width : $tablet-width)  { font-size:100%; }
+}
+
+%hard-fade { opacity: 0; @include transition(opacity 0.22s);}
+%soft-fade { opacity: 0.5; @include transition(opacity 0.5s);}
+%soft-text { color: $accent-alt; opacity: 0.8; }
+
+%underlined  {
+  padding-bottom: 0.2px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-color: $background-color;
+  display: inline-block;
+  @include transition(border-color 0.5s);
+}
+%underlined-hover { border-color: $accent-high; }
+
+%underlined-alt  { @extend %underlined; border-color: $accent-soft; }
+%underlined-alt-hover { border-color: $body-color; }
+
+%nested-content { margin-left: $gutter; margin-right:$gutter; }
+%double-nested { margin: 0 $gutter-adj * -1; }
+
+%empty {
+  margin: 0;
+  content: "";
+}
+
+%em-head {
+  content: ".";  font-size:150%;
+  position:relative; top: -0.15em;
+  margin: 0 0.1em;
+  letter-spacing: 0.1em;
+}
+
+%em-head-top {
+  top: 11px;
+  content: "•";
+  display: block;
+  font-size:24px;
+  position:relative;
+  text-align: center;
+  font-family: $body-font;
+}
+
+%em-head-strong {
+  @extend %em-head;
+  content: "...";
+  font-size:120%;
+  top: -0.26em;
+}
+
+%classy {
+  letter-spacing: 0.01em;
+  font-weight: $font-weight;
+  text-transform: uppercase;
+  font-size: 100%!important;
+}
+
+%mia-head {
+  font-family: $display-font;
+  font-weight: $display-weight;
+}
+
+%mia-sub-head {
+  font-size: 200%;
+  line-height: 100%;
+  text-indent: -0.04em;
+  font-family: $display-font;
+  font-weight: $display-weight;
+}
+
+%page-title {
+  font-size: 250%;
+  line-height: 130%;
+  text-indent: -0.07em;
+  margin-top:0!important;
+}
+
+%button {
+  margin: 0 5px;
+  @extend %classy;
+  border-width: 1px;
+  border-style: solid;
+  padding: 0.6em 0.9em;
+  display: inline-block;
+  &:hover, &:active {
+    @extend %alt-background;
+    border-color: $background-color-alt;
+  }
+}
