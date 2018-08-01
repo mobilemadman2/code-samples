@@ -1,0 +1,219 @@
+$start: #7e162e;
+$bright: #cb1c2e;
+
+body {
+  background-image: url('../map.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.crop {
+  width: 400px;
+  height:200px;
+  margin: 180px auto;
+  overflow: hidden;
+  .wrapper {
+    width: 100%;
+    height: 200%;
+  }
+}
+.wrapper {
+  width: 90%;
+  max-width: 800px;
+  margin: 50px auto;
+  &:nth-child(even) {
+    max-width: 200px;
+  }
+  svg {
+    width: auto;
+    &.warning {
+      height: 60px;
+      .kai {
+        path, polygon {
+          animation-name: flashAlt2;
+          animation-duration: 0.5s;
+          animation-iteration-count: infinite;
+          animation-direction: alternate;
+        }
+      }
+      .danger {
+        path, polygon {
+          animation-name: flashAlt;
+          animation-duration: 0.5s;
+          animation-iteration-count: infinite;
+          animation-direction: alternate;
+        }
+      }
+    }
+    &.hex, &.errorHex { height: 50px; }
+    &.category, &.error { height: 24px; }
+    &.category {
+      vertical-align: top;
+      margin-top: 8px;
+      margin-left: 4px;
+      .kai {
+        path { fill: $bright; }
+      }
+      .kai, .cat {
+        animation-name: fadeCat;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        transform-origin: 0 50%;
+      }
+    }
+    &.error {
+      vertical-align: top;
+      margin-top: 8px;
+      margin-left: 4px;
+      .err path {
+        animation-name: flash;
+        animation-duration: 0.5s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+    }
+    &.hex {
+      width: 50px;
+      overflow: visible;
+      .inner {
+        animation-name: flashHex;
+        animation-duration: 0.3s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        transform-origin: 50% 50%;
+      }
+      .mid {
+        fill: $bright;
+        animation-name: flashMid;
+        animation-duration: 0.3s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        transform-origin: 50% 50%;
+      }
+      .outer {
+        animation-name: flashOuter;
+        animation-duration: 0.3s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        transform-origin: 50% 50%;
+      }
+    }
+    &.errorHex {
+      width: 50px;
+      overflow: visible;
+      .inner {
+        animation-name: flashDot;
+        animation-duration: 0.3s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        transform-origin: 50% 50%;
+      }
+      .mid {
+        fill: $bright;
+        animation-name: flashMid;
+        animation-duration: 0.3s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        transform-origin: 50% 50%;
+      }
+      .outer {
+        animation-name: flashOuter;
+        animation-duration: 0.3s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        transform-origin: 50% 50%;
+      }
+    }
+    &.wheel {
+      width: 100%;
+      animation-name: spin;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      transform-origin: 50% 50%;
+      animation-timing-function: linear;
+      .one {
+        animation-name: flash1;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+      .two {
+        animation-name: flash2;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+      .three {
+        animation-name: flash3;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+    }
+  }
+}
+
+@keyframes spin {
+    0% {transform: rotate(0deg); }
+    100% {transform: rotate(360deg); }
+}
+@keyframes flash {
+  0% { fill: $start; opacity: 1 }
+  60% { fill: $bright; opacity:1; }
+  100% { fill: $bright; opacity:0; }
+}
+@keyframes flashAlt {
+  0% { fill: $start; opacity: 0 }
+  25% { fill: $start; opacity:0; }
+  60% { fill: $start; opacity:1; }
+  80% { fill: $bright; opacity:1; }
+  100% { fill: $bright; opacity:1; }
+}
+@keyframes flashAlt2 {
+  0% { fill: $bright; opacity: 1; }
+  20% { fill: $bright; opacity: 1; }
+  40% { fill: $start; opacity:1; }
+  75% { fill: $start; opacity:0; }
+  100% { fill: $start; opacity:0; }
+}
+@keyframes flash1 {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes flash2 {
+    0% { opacity: 1; }
+    20% { opacity: 1; }
+    100% { opacity: 0; }
+}
+@keyframes flash3 {
+    0% { opacity: 1; }
+    20% { opacity: 0; }
+    70% { opacity: 1; }
+    100% { opacity: 1; }
+}
+@keyframes flashDot {
+    0% {fill: $start; transform: scale(1); }
+    100% {fill: $bright;  transform: scale(2.5); }
+}
+@keyframes fadeCat {
+    0% {opacity:1; transform: scale(1); }
+    94% {opacity:1; transform: scale(1); }
+    100% {opacity:0; transform: scale(0.8); }
+}
+@keyframes flashOuter {
+    0% {fill: $start; transform: scale(1); opacity: 1; }
+    40% {fill: $start; transform: scale(1); opacity: 1; }
+    100% {fill: $bright; transform: scale(1.15); opacity: 0.8; }
+}
+@keyframes flashMid {
+    0% {opacity:0; }
+    40% {opacity:0; }
+    100% {opacity:1; }
+}
+@keyframes flashHex {
+    0% {fill: $start; transform: scale(0.9); opacity: 0.6; }
+    20% {fill: $start; transform: scale(0.9); opacity: 1; }
+    50% {fill: $bright;  transform: scale(1); opacity: 1; }
+    100% {fill: $bright;  transform: scale(1); opacity: 1; }
+}
