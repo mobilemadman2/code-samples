@@ -25,15 +25,7 @@ class App extends Component {
     fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      data.id = id;
-      data.comments = []
-      if (data.kids) {
-        data.commentsLoading = true
-        data.kids = data.kids.slice(0, 20)
-      }
-      var tempArr = this.state.stories.map(story => story);
-      tempArr[index] = data;
-      this.setState({stories: tempArr})
+      this.addStoryToState(this.setUpStoryData(data, id), index)
       if (++index < this.state.storyIds.length) this.getStory(index)
       else {
         this.setState({loading:false})
@@ -49,26 +41,42 @@ class App extends Component {
       fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        data.id = id;
-        var tempArr = this.state.stories.map(story => story)
-        tempArr[storyIndex].comments[commentIndex] = data
-        if (++commentIndex < this.state.stories[storyIndex].kids.length) {
-          this.setState({stories: tempArr})
-          this.getComments(storyIndex, commentIndex)
-        }
-        else {
-          tempArr[storyIndex].commentsLoading = false
-          this.setState({stories: tempArr})
-          if (++storyIndex < this.state.stories.length) {
-            this.getComments(storyIndex, 0)
-          }
-        }
+        this.addCommentToState(this.setUpCommentData(data, id), commentIndex, storyIndex)
+        if (++commentIndex < this.state.stories[storyIndex].kids.length) this.getComments(storyIndex, commentIndex)
+        else this.handleCommentsLoaded(storyIndex)
       })
       .catch((error) => console.log(error))
     } else if (++storyIndex < this.state.stories.length) {
       this.getComments(storyIndex, 0)
     }
   }
+
+  setUpStoryData = (data, itemId) => {
+    const commentsData = (data.kids) ? {commentsLoading: true, kids: data.kids.slice(0, 20)} : {}
+    return Object.assign({id: itemId, comments: [], ...data, ...commentsData})
+  }
+  setUpCommentData = (data, itemId) => {
+    return Object.assign({id: itemId, ...data})
+  }
+
+  addCommentToState = (data, index, parentIndex) => {
+    let storyArray = this.state.stories.map(story => story);
+    storyArray[parentIndex].comments[index] = data;
+    this.setState({stories: storyArray})
+  }
+  addStoryToState = (data, index) => {
+    let storyArray = this.state.stories.map(story => story);
+    storyArray[index] = data;
+    this.setState({stories: storyArray})
+  }
+
+  handleCommentsLoaded = (index) => {
+    let storyArray = this.state.stories.map(story => story);
+    storyArray[index].commentsLoading = false;
+    this.setState({stories: storyArray})
+    if (++index < this.state.stories.length) this.getComments(index, 0)
+  }
+
   render() {
     return (
       <div className="App">

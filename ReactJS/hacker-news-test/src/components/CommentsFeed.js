@@ -17,6 +17,9 @@ class CommentsFeed extends React.Component {
               key={item.id}
               className="news-feed-comments__list-item"
               >
+              <h4 className="news-feed-comments__list-author">
+                {item.by}
+              </h4>
               {ReactHtmlParser(item.text)}
             </li>
           )}

@@ -272,4 +272,7 @@ a {
   .news-feed-comments--loading .news-feed-comments_header {
     display: none; }
 
+.news-feed-comments__list-author {
+  font-weight: 700; }
+
 /*# sourceMappingURL=App.css.map */
