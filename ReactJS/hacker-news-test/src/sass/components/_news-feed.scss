@@ -65,13 +65,12 @@
 .news-feed-comments__list {
   max-height: 0;
   overflow: hidden;
-  @include transition(max-height 1s);
-  .news-feed-comments:hover & {
+  .news-feed-comments--open & {
     max-height: 10000px;
   }
 }
 .news-feed-comments__list-item {
-  margin-left: 2em;
+  margin-left: 1em;
   padding-top: 1em;
   margin-top: 0.5em;
   margin-bottom: 1em;
@@ -92,7 +91,7 @@
     display: inline-block;
   }
   &:hover { color: $secondary-color; }
-  .news-feed-comments:hover & {
+  .news-feed-comments--open &  {
     &:before { content: '\2191' }
   }
   .news-feed-comments--loading & {

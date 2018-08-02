@@ -48,8 +48,8 @@ class NewsFeed extends React.Component {
               </section>
               <CommentsFeed
                 data={item.comments}
-                commentsClass={(item.commentsLoading) ? 'loading' : 'loaded'
-              } />
+                loading={item.commentsLoading}
+              />
             </li>
           )}
         </ul>
