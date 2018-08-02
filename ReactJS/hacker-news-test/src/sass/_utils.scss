@@ -1,0 +1,61 @@
+@mixin transform ($props) {
+  -webkit-transform: $props;
+  -moz-transform: $props;
+  -ms-transform: $props;
+  transform: $props;
+}
+@mixin transform-origin ($props) {
+  -webkit-transform-origin: $props;
+  -moz-transform-origin: $props;
+  -ms-transform-origin: $props;
+  transform-origin: $props;
+}
+@mixin transition ($props) {
+  -webkit-transition: $props;
+  -moz-transition: $props;
+  -ms-transition: $props;
+  transition: $props;
+}
+@mixin animation-name ($props) {
+  -webkit-animation-name: $props;
+  -moz-animation-name: $props;
+  -ms-animation-name: $props;
+  animation-name: $props;
+}
+@mixin animation-delay ($props) {
+  -webkit-animation-delay: $props;
+  -moz-animation-delay: $props;
+  -ms-animation-delay: $props;
+  animation-delay: $props;
+}
+@mixin animation-duration ($props) {
+  -webkit-animation-duration: $props;
+  -moz-animation-duration: $props;
+  -ms-animation-duration: $props;
+  animation-duration: $props;
+}
+@mixin animation-iteration-count ($props) {
+  -webkit-animation-iteration-count: $props;
+  -moz-animation-iteration-count: $props;
+  -ms-animation-iteration-count: $props;
+  animation-iteration-count: $props;
+}
+@mixin animation-fill-mode ($props) {
+  -webkit-animation-fill-mode: $props;
+  -moz-animation-fill-mode: $props;
+  -ms-animation-fill-mode: $props;
+  animation-fill-mode: $props;
+}
+@mixin animation-direction ($props) {
+  -webkit-animation-direction: $props;
+  -moz-animation-direction: $props;
+  -ms-animation-direction: $props;
+  animation-direction: $props;
+}
+
+/* animations */
+@-webkit-keyframes pop {
+  0% { @include transform(translate(0,0))}
+  40% { @include transform(translate(0,20px))}
+  100% { @include transform(translate(0,0))}
+}

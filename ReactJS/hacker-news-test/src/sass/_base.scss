@@ -1,0 +1,104 @@
+body {
+  font-size: 18px;
+  color: $font-color;
+  font-family: $font;
+  line-height: 1.44em;
+  background: $bg-color;
+  vertical-align: baseline;
+  font-weight: $font-weight;
+  .reader {
+    top:-100px;
+    position: fixed;
+  }
+}
+p, li, h1, h2, h3, h4, h5, h6, small {
+  font-weight: $font-weight;
+}
+p {
+  margin-bottom: 0.5em;
+}
+small {
+  font-size: 80%;
+}
+strong {
+  font-weight: $strong-font-weight;
+}
+a {
+  text-decoration: none;
+  color: $secondary-color;
+  &:hover, &:active {
+    color: $brand-color;
+  }
+  &.cta {
+    line-height: 3em;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    font-weight: $strong-font-weight;
+  }
+}
+
+.app-header {
+  width: 100%;
+  color: white;
+  position: relative;
+  padding: 10vh 0 7vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: $brand-color;
+  background-image: url(assets/background.png);
+  @media only screen and (min-width: 768px) {
+    padding: 20vh 0 15vh;
+  }
+  &:after {
+    z-index: 3;
+    content: ' ';
+    opacity: 0.7;
+    display: block;
+    position: absolute;
+    background: $brand-color;
+    top:0; right:0; bottom: 0; left:0;
+  }
+}
+.app-header__title {
+  z-index: 5;
+  width: 90%;
+  margin: 0 auto;
+  color: inherit;
+  font-size: 160%;
+  max-width: 900px;
+  position: relative;
+  font-family: $display-font;
+  @media only screen and (min-width: 550px) {
+    font-size: 220%;
+  }
+  @media only screen and (min-width: 1000px) {
+    font-size: 300%;
+    margin-left: 5%;
+    margin-right: auto;
+  }
+  @media only screen and (min-width: 1400px) {
+    margin-left: auto;
+    margin-right: 25%;
+  }
+}
+.app-footer {
+  width: 100%;
+  color: white;
+  padding: 5px 0;
+  background-color: $brand-color;
+}
+.app-footer__text {
+  width: 90%;
+  margin: 5px auto;
+  max-width: 900px;
+  a { color: $white }
+  @media only screen and (min-width: 1000px) {
+    margin-left: 5%;
+    margin-right: auto;
+  }
+  @media only screen and (min-width: 1400px) {
+    margin-left: auto;
+    margin-right: 25%;
+  }
+}

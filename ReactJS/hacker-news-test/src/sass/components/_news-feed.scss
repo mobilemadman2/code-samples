@@ -1,0 +1,101 @@
+.news-feed {
+  width: 90%;
+  min-height: 70vh;
+  max-width: 900px;
+  margin: 30px auto;
+  @media only screen and (min-width: 1000px) {
+    margin-left: 5%;
+    margin-right: auto;
+  }
+  @media only screen and (min-width: 1400px) {
+    margin-left: auto; margin-right: 25%;
+  }
+}
+
+.news-feed__loading-icon {
+  display: block;
+  text-align: center;
+}
+.news-feed__svg {
+  width: auto;
+  height: 30px;
+  display: block;
+  overflow: visible;
+  margin: 30px auto 20px 0;
+  circle {
+    @include animation-name(pop);
+    @include animation-duration(1s);
+    @include animation-iteration-count(infinite);
+    @include animation-direction(alternate-reverse);
+    &:nth-child(3) { @include animation-delay(0.2s); }
+    &:nth-child(2) { @include animation-delay(0.5s); }
+    &:nth-child(1) { @include animation-delay(0.7s); }
+  }
+  .news-feed-comments & {
+    height: 25px;
+    margin-top: 15px;
+  }
+}
+
+.news-feed__list-item {
+  padding: 20px 0;
+  border-bottom: $box-border;
+  &:last-child { border-bottom-width: 0; }
+}
+
+.news-feed__list-item-title {
+  font-size: 100%;
+  line-height: 120%;
+  margin-bottom: 0.5em;
+  font-weight: $font-weight;
+  font-family: $display-font;
+  @media only screen and (min-width: 550px) {
+    font-size: 120%;
+  }
+  @media only screen and (min-width: 1000px) {
+    font-size: 140%;
+  }
+}
+.news-feed__list-item-title  {
+  margin-top: 0.5em;
+}
+
+.news-feed-comments {}
+
+.news-feed-comments__list {
+  max-height: 0;
+  overflow: hidden;
+  @include transition(max-height 1s);
+  .news-feed-comments:hover & {
+    max-height: 10000px;
+  }
+}
+.news-feed-comments__list-item {
+  margin-left: 2em;
+  padding-top: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+  border-top: $box-border;
+}
+.news-feed-comments_placeholder {
+  display: none;
+  .news-feed-comments--loading & {
+    display: block;
+  }
+}
+.news-feed-comments_header {
+  cursor: pointer;
+  font-weight: $strong-font-weight;
+  &:before {
+    content: '\2193';
+    margin-right: 5px;
+    display: inline-block;
+  }
+  &:hover { color: $secondary-color; }
+  .news-feed-comments:hover & {
+    &:before { content: '\2191' }
+  }
+  .news-feed-comments--loading & {
+    display: none;
+  }
+}
